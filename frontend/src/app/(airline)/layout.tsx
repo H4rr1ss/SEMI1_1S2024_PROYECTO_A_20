@@ -4,9 +4,13 @@ export default function AirlineLayout( { children }: {
   children: React.ReactNode;
 } ) {
   return (
-    <main className="min-h-screen bg-red-500">
-      <TopMenu />
-      { children }
+    <main className="">
+      <div className="">
+        <TopMenu />
+      </div>
+      <div className="mt-10">
+        { children }
+      </div>
     </main>
   );
 }
