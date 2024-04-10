@@ -1,3 +1,4 @@
+import Footer from "@/components/ui/footer/Footer";
 import TopMenu from "@/components/ui/top-menu/TopMenu";
 
 export default function AirlineLayout( { children }: {
@@ -7,6 +8,7 @@ export default function AirlineLayout( { children }: {
     <main className="">
         <TopMenu />
         { children }
+        <Footer />
     </main>
   );
 }

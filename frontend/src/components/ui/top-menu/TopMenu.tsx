@@ -15,8 +15,8 @@ const TopMenu = () => {
       <div className="nav-p2-bg flex justify-end w-full h-14">
         <div className="w-3/4 hidden sm:block">
           <div className="flex justify-start items-center h-14 p-5">
+          <Link className="item h-14 w-48 flex items-center justify-center" href={"/reserve-su-vuelo"}>Reserva tu vuelo</Link>
             <Link className="item h-14 w-24 flex items-center justify-center" href={"/tus-tickets"}>Tickets</Link>
-            <Link className="item h-14 w-48 flex items-center justify-center" href={"/reserve-su-vuelo"}>Reserva tu vuelo</Link>
             <Link className="item h-14 w-28 flex items-center justify-center" href={"/check-in"}>Check-In</Link>
           </div>
         </div>

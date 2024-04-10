@@ -1,0 +1,26 @@
+.footer-style{
+    background-color: #E8E6E5;
+    color: #515151;
+}
+
+.footer-style h1{
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.footer-style .social-networks .circle{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #6A6A6A;
+    cursor: pointer;
+}
+
+.footer-style .line{
+    border: 1.1px solid #A4A4A4;
+}
+
+.footer-style h4{
+    margin-top: 10px;
+    font-size: 14px;
+}
