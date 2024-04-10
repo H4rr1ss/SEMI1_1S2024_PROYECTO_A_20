@@ -5,12 +5,8 @@ export default function AirlineLayout( { children }: {
 } ) {
   return (
     <main className="">
-      <div className="">
         <TopMenu />
-      </div>
-      <div className="mt-10">
         { children }
-      </div>
     </main>
   );
 }

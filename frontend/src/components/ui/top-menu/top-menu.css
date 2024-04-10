@@ -1,0 +1,22 @@
+.nav-p1-bg{
+    background-color: #373737;
+}
+
+.tp-flag{
+    background-color: #AD0909;
+    letter-spacing: 1px;
+}
+
+.nav-p2-bg{
+    background-color: #373737;
+}
+
+.nav-p2-bg .item:hover{
+    background-color: #1F1F1F;
+}
+
+.nav-p2-bg .item{
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
