@@ -3,7 +3,7 @@ import './top-menu.css'
 
 const TopMenu = () => {
   return (
-    <nav className="flex h-14 justify-between items-start w-full">
+    <nav className="flex h-14 justify-between items-start w-full fixed top-0 left-0 z-50">
       <div className="nav-p1-bg w-20 flex h-14 "></div>
 
       {/* BANDERA */}
@@ -16,7 +16,7 @@ const TopMenu = () => {
         <div className="w-3/4 hidden sm:block">
           <div className="flex justify-start items-center h-14 p-5">
             <Link className="item h-14 w-24 flex items-center justify-center" href={"/tus-tickets"}>Tickets</Link>
-            <Link className="item h-14 w-48 flex items-center justify-center" href={"/reserve-su-vuelo"}>Reserve su vuelo</Link>
+            <Link className="item h-14 w-48 flex items-center justify-center" href={"/reserve-su-vuelo"}>Reserva tu vuelo</Link>
             <Link className="item h-14 w-28 flex items-center justify-center" href={"/check-in"}>Check-In</Link>
           </div>
         </div>
