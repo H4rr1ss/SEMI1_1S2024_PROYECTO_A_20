@@ -108,8 +108,8 @@ export default function Home() {
         <div className="about-kehuel text-center">
           <h3>Personaliza tu viaje y disfruta de las mejores ofertas de vuelos</h3>
           <p>
-          Personaliza fácilmente tus planes de viaje, y aprovéchate de las opciones más útiles de Kehuel como alertas 
-          de precios de vuelos, calendario de ofertas y ofertas de reserva anticipada. El sistema de pago seguro de 
+          Personaliza fácilmente tus planes de viaje, y aprovéchate de las opciones más útiles de Kehuel como alertas
+          de precios de vuelos, calendario de ofertas y ofertas de reserva anticipada. El sistema de pago seguro de
           Kehuel te ofrece las opciones de pago más seguras y sencillas, incluido el pago con tarjeta de crédito y débito.
           </p>
           <h3>Conozca más sobre nuestra historia, nuestro negocio y nuestras iniciativas de sostenibilidad.</h3>

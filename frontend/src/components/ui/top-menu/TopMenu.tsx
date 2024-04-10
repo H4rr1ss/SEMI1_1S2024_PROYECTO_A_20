@@ -21,7 +21,7 @@ const TopMenu = () => {
           </div>
         </div>
         <div className="flex justify-center items-center w-1/4">
-          <Link className="item h-14 w-52 flex items-center justify-center gap-1" href={"/"}>
+          <Link className="item h-14 w-52 flex items-center justify-center gap-1" href={"/login-register"}>
             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user-square-rounded" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
               <path d="M12 13a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z" />
