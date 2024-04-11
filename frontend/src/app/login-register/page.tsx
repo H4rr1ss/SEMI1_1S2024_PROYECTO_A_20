@@ -12,18 +12,26 @@ const Login = () =>{
         <div className="form-container sign-up absolute top-0 h-full left-0 w-1/2">
           <form>
             <h1>Crear Cuenta</h1>
-            <div className="social-icons">
-              <a href="#" className="icon">
-                <i className="fa-brands fa-google-plus-g"></i>
-              </a>
-              <a href="#" className="icon">
-                <i className="fa-brands fa-facebook-f"></i>
-              </a>
+            <div className="flex justify-between w-full">
+              <input className='w-40' type="text" placeholder='Nombre' />
+              <input className='w-40' type="text" placeholder='Apellido' />
             </div>
-            <span>o utiliza tu correo electrónico para registrarte</span>
-            <input type="text" placeholder='Nombre' />
-            <input type="email" placeholder='Correo Electronico' />
-            <input type="password" placeholder='Contraseña' />
+            <div className="flex justify-between w-full">
+              <input className='w-40' type="text" placeholder='Número de teléfono' />
+              <input className='w-40' type="text" placeholder='Nacionalidad' />
+            </div>
+            <input className='w-full' type="email" placeholder='Correo Electronico' />
+            <input className='w-full' type="number" placeholder='No. Pasaporte' />
+            <input className='w-full' type="password" placeholder='Contraseña' />
+            <label htmlFor="fileInput" className="custom-file relative inline-block cursor-pointer w-4/5">
+              <span>Clic para seleccionar foto de perfil</span>
+              <input
+                id="fileInput"
+                type="file"
+                accept="image/*"
+                className="hidden"
+              />
+            </label>
             <button>Registrarse</button>
           </form>
         </div>
@@ -31,17 +39,8 @@ const Login = () =>{
         <div className="form-container sign-in absolute top-0 h-full left-0 w-1/2">
           <form>
             <h1>Inicio de sesión</h1>
-            <div className="social-icons">
-              <a href="#" className="icon">
-                <i className="fa-brands fa-google-plus-g"></i>
-              </a>
-              <a href="#" className="icon">
-                <i className="fa-brands fa-facebook-f"></i>
-              </a>
-            </div>
-            <span>o utiliza tu correo electrónico.</span>
-            <input type="email" placeholder='Correo Electronico' />
-            <input type="password" placeholder='Contraseña' />
+            <input className='w-full' type="email" placeholder='Correo Electronico' />
+            <input className='w-full' type="password" placeholder='Contraseña' />
             <button>Ingresar</button>
           </form>
         </div>
