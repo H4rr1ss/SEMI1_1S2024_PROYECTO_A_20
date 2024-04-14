@@ -1,3 +1,4 @@
+
 // DATA DE LOGUEO PARA CLIENTE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 interface Client {
     name: string;
@@ -25,11 +26,9 @@ export const client: Client = {
 // DATA DE TICKETS DEL CLIENTE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 interface Ticket {
     id: string;
-    travelSimple: boolean;
     origin: string;
     destination: string;
     date: string;
-    days: number;
     typeFlight: string;
     travellers: number;
     idFlight: number;
@@ -39,11 +38,9 @@ interface Ticket {
 export const tickets: Ticket[] = [
     {
         id: "A3KJ3",
-        travelSimple: true,
         origin: "Paris",
         destination: "Madrid",
         date: "2022-10-15",
-        days: 0,
         typeFlight: "Economico",
         travellers: 1,
         idFlight: 1,
@@ -51,11 +48,9 @@ export const tickets: Ticket[] = [
     },
     {
         id: "B7GZ9",
-        travelSimple: false,
         origin: "New York",
         destination: "Los Angeles",
         date: "2022-11-20",
-        days: 7,
         typeFlight: "Premium",
         travellers: 2,
         idFlight: 2,
@@ -63,11 +58,9 @@ export const tickets: Ticket[] = [
     },
     {
         id: "C2HD5",
-        travelSimple: true,
         origin: "London",
         destination: "Berlin",
         date: "2022-12-05",
-        days: 0,
         typeFlight: "Business",
         travellers: 1,
         idFlight: 3,
@@ -209,5 +202,4 @@ export const flights: Flight[] = [
         },
         preventiveRecommendations: "Be mindful of pickpockets in crowded tourist areas."
     }
-];
-
+]

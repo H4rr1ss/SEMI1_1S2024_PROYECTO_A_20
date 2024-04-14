@@ -1,0 +1,29 @@
+.header-register-flight{
+    font-size: 35px;
+    padding: 60px 0;
+    color: #373737;
+}
+
+.container-details-flight{
+    height: 550px;
+    width: 64%;
+    border: 2px solid #373737;
+}
+
+.container-details-flight .header{
+    background-color: #373737;
+}
+
+.container-details-destination{
+    height: 650px;
+    width: 64%;
+    border: 2px solid #373737;
+}
+
+.container-details-destination .header{
+    background-color: #373737;
+}
+
+.buttons button{
+    background-color: #373737;
+}
