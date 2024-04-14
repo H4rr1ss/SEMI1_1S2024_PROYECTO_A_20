@@ -33,6 +33,10 @@
     background-color: #373737;
 }
 
+.buttons .b-out{
+    background-color: #373737;
+}
+
 .custom-file span {
     display: inline-block;
     margin: 8px 0;

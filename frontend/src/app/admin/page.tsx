@@ -1,10 +1,11 @@
 'use client'
 import InputAdmin from '@/components/ui/input-admin/Input-admin';
-import './admin.css'
 import { useState } from 'react';
-
+import Link from "next/link"
+import './admin.css'
 
 export default function Admin(){
+  // Detalles vuelo
   const [destinationCountry, setDestinationCountry] = useState<string>("");
   const [destination, setDestination] = useState<string>("");
   const [originCountry, setOriginCountry] = useState<string>("");
@@ -15,13 +16,47 @@ export default function Admin(){
   const [price, setPrice] = useState<string>("");
   const [typeFlight, setTypeFlight] = useState<string>("");
 
-  // Destination details
+  // Detalles destino
+  const [imageBase64, setImageBase64] = useState<string>('');
   const [description, setDescription] = useState('');
+  const [place1, setPlace1] = useState('borrar texto');
+  const [description1, setDescription1] = useState('');
+  const [place2, setPlace2] = useState('borrar texto');
+  const [description2, setDescription2] = useState('');
+  const [preventionRecommendations, setPreventionRecommendations] = useState('');
+
 
   const handle = () => {
     console.log(destinationCountry);
     console.log(description);
-}
+  }
+
+  const handleImageBase64 = (event: any) => {
+    try {
+      const file = event.target.files?.[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        // Configurar el evento de carga del lector
+        reader.onload = function (e) {
+          if (e.target && e.target.result) {
+            const base64Image = e.target.result as string;
+
+            // Actualizar el estado con el Base64 de la imagen
+            setImageBase64(base64Image);
+          }
+        };
+
+        // Leer el archivo como Base64
+        reader.readAsDataURL(file);
+      } else {
+        console.log("No se ha seleccionado un archivo");
+      }
+    } catch (error) {
+      console.log("Ha ocurrido un error");
+    }
+  }
 
   return(
       <div className="flex flex-col items-center">
@@ -53,8 +88,9 @@ export default function Admin(){
               <input
                 id="fileInput"
                 type="file"
-                accept="image/*"
+                accept="imageBase64/*"
                 className="hidden"
+                onChange={handleImageBase64}
               />
             </label>
             <div className="w-full mt-10 flex flex-col items-center">
@@ -66,29 +102,29 @@ export default function Admin(){
                 <label>Descripción Destino</label>
               </div>
 
-              <h2>LUGAR TURISTICO 1</h2>
+              <h2>{place1}</h2>
 
               <div className="textArea-field w-full mt-5 mb-7">
                 <textarea
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                  value={description1}
+                  onChange={(e) => setDescription1(e.target.value)}
                 />
                 <label>Descripción</label>
               </div>
 
-              <h2>LUGAR TURISTIsCO 2</h2>
+              <h2>{place2}</h2>
 
               <div className="textArea-field w-full mt-5 mb-24">
                 <textarea
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                  value={description2}
+                  onChange={(e) => setDescription2(e.target.value)}
                 />
                 <label>Descripción</label>
               </div>
               <div className="textArea-field w-full">
                 <textarea
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                  value={preventionRecommendations}
+                  onChange={(e) => setPreventionRecommendations(e.target.value)}
                 />
                 <label>Recomendaciones preventivas</label>
               </div>
@@ -103,12 +139,12 @@ export default function Admin(){
           >
             Registrar vuelo
           </button>
-          <button
-            className="px-14 py-3 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
-            onClick={handle}
+          <Link
+            className="b-out px-14 py-3 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
+            href={"/"}
           >
             Salir
-          </button>
+          </Link>
         </div>
       </div>
   );
