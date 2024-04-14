@@ -1,0 +1,25 @@
+.editProfile{
+    height: 600px;
+    border-radius: 20px;
+    border: 1px solid #131313;
+}
+
+.editProfile button{
+    background-color: #373737;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.editProfile svg{
+    cursor: pointer;
+}
+
+.h1-editProfile{
+    font-size: 30px;
+    padding: 40px 0px 0px 0px;
+    color: #373737;
+}
