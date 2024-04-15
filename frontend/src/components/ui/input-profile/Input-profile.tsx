@@ -1,14 +1,15 @@
 'use client'
-import './input-admin.css'
+import '../input-admin/input-admin.css'
 
-interface InputAdminProps {
+interface InputProfileProps {
     inputType: string;
     text: string;
     value: string;
+    disabled: boolean;
     setInfo: (value: string) => void;
 }
 
-const InputAdmin = ( props:InputAdminProps ) => {
+const InputProfile = ( props:InputProfileProps ) => {
 
     const handle = (value: string) => {
         props.setInfo(value);
@@ -20,6 +21,7 @@ const InputAdmin = ( props:InputAdminProps ) => {
                 type={props.inputType}
                 required
                 value={props.value}
+                disabled={!(props.disabled)}
                 onChange={(event) => handle(event.target.value)}
             />
             <label>{props.text}</label>
@@ -27,4 +29,4 @@ const InputAdmin = ( props:InputAdminProps ) => {
     )
 }
 
-export default InputAdmin
+export default InputProfile
