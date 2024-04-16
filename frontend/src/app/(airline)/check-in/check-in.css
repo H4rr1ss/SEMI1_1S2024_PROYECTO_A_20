@@ -1,0 +1,69 @@
+.check-page{
+    color: black;
+}
+
+.check-page .header{
+    background-image: url('/imas/headers/ckeckIn_header.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.box-ckeckIn{
+    border: 1px solid #373737;
+    width: 26rem;
+    height: 21rem;
+    top:145px;
+    background-color: #F1F0ED;
+}
+
+.box-ckeckIn h1{
+    background-color: #4c4c4c;
+    color: white;
+}
+
+.box-ckeckIn button{
+    background-color: #4c4c4c;
+    color: white;
+}
+
+.inputs .input-field{
+    position: relative;
+}
+
+.inputs .input-field input{
+    width: 299px;
+    height: 46px;
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 0 15px;
+    border: 2px solid #6a6a6a;
+    background: transparent;
+    color: #000000;
+    outline: none;
+}
+
+.inputs .input-field label{
+    position: absolute;
+    top: 0;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 14px;
+    padding: 0 2px;
+    background: #F1F0ED;
+}
+
+.check-page .reminder{
+    margin-top: 22rem;
+    margin-bottom: 4rem;
+}
+
+.check-page .reminder h1{
+    margin-left: 20px;
+}
+
+.check-page .reminder p{
+    margin-left: 20px;
+    margin-top: 15px;
+}
