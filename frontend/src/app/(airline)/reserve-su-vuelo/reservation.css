@@ -1,0 +1,46 @@
+.reserve-page{
+    margin-bottom: 32rem;
+}
+
+.reserve-page .fr-header{
+    background-image: url('/imas/headers/reservation_header.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.reserve-page .fr-box{
+    width: 50rem;
+    height: 38rem;
+    top:145px;
+}
+
+.fr-box .fr-stepsForReservation{
+    background-color: #F1F0ED;
+    border: 1px solid #373737;
+}
+
+.fr-box .fr-stepsForReservation .step{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:14rem;
+    gap: 12px;
+}
+
+.fr-box .fr-stepsForReservation .step .circle{
+    border: 1px solid #373737;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.fr-box .fr-content{
+    background-color: #F1F0ED;
+    border: 1px solid #373737;
+    border-top-style: none;
+}

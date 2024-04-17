@@ -2,7 +2,7 @@ import './footer.css'
 
 const Footer = () => {
     return (
-        <div className="footer-style h-64 text-center flex flex-col items-center">
+        <div className="footer-style h-64 text-center flex flex-col items-center w-full">
           <h1 className='py-4'>Síguenos</h1>
           <div className="social-networks flex justify-center gap-6">
             <div className="circle flex items-center justify-center">

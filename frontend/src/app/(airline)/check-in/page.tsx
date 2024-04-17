@@ -1,9 +1,8 @@
-import Image from 'next/image';
 import './check-in.css'
 
 export default function Check_in() {
   return (
-    <div className="check-page mt-14 flex flex-col items-center relative">
+    <div className="check-page mt-14 flex flex-col items-center relative flex-grow">
 
       <div className="header bg-red-400 w-full h-72"></div>
 

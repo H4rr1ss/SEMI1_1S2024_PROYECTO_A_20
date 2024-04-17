@@ -5,7 +5,7 @@ export default function AirlineLayout( { children }: {
   children: React.ReactNode;
 } ) {
   return (
-    <main className="">
+    <main className="flex flex-col h-screen">
         <TopMenu />
         { children }
         <Footer />
