@@ -24,3 +24,35 @@ model Client {
   password       String
   profilePicture String?
 }
+
+model Flight {
+  id                        Int           @id @default(autoincrement())
+  destinationCountry        String
+  destination               String
+  originCountry             String
+  origin                    String
+  boardingTime              String
+  arrivalTime               String
+  date                      String
+  price                     Decimal
+  typeFlight                String
+  preventiveRecommendations String
+  destinations              Destination[]
+}
+
+model Destination {
+  id          Int     @id @default(autoincrement())
+  image       String?
+  description String
+  places      Place[]
+  flightId    Int
+  flight      Flight  @relation(fields: [flightId], references: [id])
+}
+
+model Place {
+  id            Int         @id @default(autoincrement())
+  name          String
+  description   String
+  destinationId Int
+  destination   Destination @relation(fields: [destinationId], references: [id])
+}
