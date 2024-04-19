@@ -37,7 +37,7 @@ model Flight {
   price                     Decimal
   typeFlight                String
   preventiveRecommendations String
-  destinations              Destination[]
+  destinationDetail         Destination[]
 }
 
 model Destination {

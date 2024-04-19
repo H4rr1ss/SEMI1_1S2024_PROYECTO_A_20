@@ -65,4 +65,31 @@ export class FlightsService {
     }
     return newFlight;
   }
+
+  async getAllDestinations() {
+    const allFlights = await this.prisma.flight.findMany({
+      include: {
+        destinationDetail: {
+          include: {
+            places: true,
+          },
+        },
+      },
+    });
+
+    const destinationsArray = allFlights.map((flight) => {
+      const destinationDetail = flight.destinationDetail[0];
+
+      return {
+        name: flight.destination,
+        country: flight.destinationCountry,
+        image: destinationDetail.image,
+        description: destinationDetail.description,
+        places: destinationDetail.places,
+        preventiveRecommendations: flight.preventiveRecommendations,
+      };
+    });
+
+    return destinationsArray;
+  }
 }

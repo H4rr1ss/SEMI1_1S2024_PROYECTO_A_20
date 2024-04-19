@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { Body, Post } from '@nestjs/common';
+import { Body, Post, Get } from '@nestjs/common';
 import {
   ConflictException,
   NotFoundException,
@@ -18,5 +18,10 @@ export class FlightsController {
     data: RecordFlightDto,
   ) {
     return await this.flightsService.recordFlight(data);
+  }
+
+  @Get('/get-destinations')
+  async getDestinations() {
+    return await this.flightsService.getAllDestinations();
   }
 }
