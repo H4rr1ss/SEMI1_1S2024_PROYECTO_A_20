@@ -27,11 +27,11 @@ export default function Check_in() {
         </div>
 
         <div className="box-button w-full flex justify-center mt-4">
-        <button
-          className="px-4 py-3 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
-        >
-          Guardar Cambios
-        </button>
+          <button
+            className="px-4 py-3 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
+          >
+            Guardar Cambios
+          </button>
         </div>
       </div>
 

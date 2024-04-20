@@ -11,7 +11,7 @@
 
 .reserve-page .fr-box{
     width: 50rem;
-    height: 38rem;
+    height: 40rem;
     top:145px;
 }
 
@@ -43,4 +43,49 @@
     background-color: #F1F0ED;
     border: 1px solid #373737;
     border-top-style: none;
+}
+
+.fr-box .fr-content h1{
+    width: 10rem;
+    height: 2rem;
+    text-align: center;
+    border: 1px solid #6a6a6a;
+    border-top-style: none;
+}
+
+.fr-box .fr-content .input{
+    position: relative;
+}
+
+.fr-box .fr-content .input input{
+    width: 260px;
+    height: 44px;
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 0 15px;
+    border: 2px solid #6a6a6a;
+    background: transparent;
+    color: #000000;
+    outline: none;
+}
+
+.fr-box .fr-content .input label{
+    position: absolute;
+    top: 0;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 14px;
+    padding: 0 2px;
+    background: #F1F0ED;
+}
+
+.fr-box .fr-content select{
+    border: 2px solid #6a6a6a;
+
+}
+
+.fr-box .fr-content .btn-reserve{
+    background-color: #373737;
+    color: white;
 }
