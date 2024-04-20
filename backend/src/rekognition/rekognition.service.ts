@@ -19,21 +19,14 @@ export class RekognitionService {
   }
 
   async analyzeImage(image: string): Promise<string[]> {
-    // Extrae el tipo de imagen y el base64 del string
-    const matches = image.match(/^data:(image\/\w+);base64,(.+)$/);
-    if (!matches || matches.length !== 3) {
-      throw new Error('Invalid input string');
-    }
-    const base64Image = matches[2];
-
     // Convertir la imagen base64 en un Buffer
-    const buffer = Buffer.from(base64Image, 'base64');
+    const buffer = Buffer.from(image, 'base64');
 
     const command = new DetectLabelsCommand({
       Image: {
         Bytes: buffer,
       },
-      MaxLabels: 1,
+      MaxLabels: 5,
     });
 
     const response = await this.rekognitionClient.send(command);

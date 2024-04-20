@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { S3Service } from '../s3/s3.service';
-
+import { RekognitionService } from 'src/rekognition/rekognition.service';
+import { TranslateService } from 'src/translate/translate.service';
 import { RecordFlightDto, GetFlightsDto } from './dto/flights.dto';
 
 @Injectable()
@@ -9,6 +10,8 @@ export class FlightsService {
   constructor(
     private prisma: PrismaService,
     private s3: S3Service,
+    private rekognition: RekognitionService,
+    private translate: TranslateService,
   ) {}
 
   async recordFlight(data: RecordFlightDto) {
@@ -77,21 +80,42 @@ export class FlightsService {
       },
     });
 
-    const destinationsArray = allFlights.map((flight) => {
-      const destinationDetail = flight.destinationDetail[0];
+    const destinationsArray = await Promise.all(
+      allFlights.map(async (flight) => {
+        const destinationDetail = flight.destinationDetail[0];
 
-      return {
-        name: flight.destination,
-        country: flight.destinationCountry,
-        image: destinationDetail.image,
-        description: destinationDetail.description,
-        places: destinationDetail.places,
-        preventiveRecommendations: flight.preventiveRecommendations,
-      };
-    });
+        // Obtenemos las etiquetas de la imagen
+        const labels = await this.getLabels(destinationDetail.image);
+
+        return {
+          name: flight.destination,
+          country: flight.destinationCountry,
+          image: destinationDetail.image,
+          description: destinationDetail.description,
+          keywords: labels,
+          places: destinationDetail.places,
+          preventiveRecommendations: flight.preventiveRecommendations,
+        };
+      }),
+    );
 
     return destinationsArray;
   }
+
+  getLabels = async (image: string) => {
+    // Get the image from S3
+    const key = image.split('.com/')[1];
+    const base64Image = await this.s3.getImage(key);
+
+    // Analyze the image with Rekognition
+    const labels = await this.rekognition.analyzeImage(base64Image);
+
+    // Translate the labels
+    const translatedLabels = await this.translate.translateLabels(labels);
+    console.log(translatedLabels);
+
+    return translatedLabels;
+  };
 
   async getFlights(data: GetFlightsDto) {
     const flights = await this.prisma.flight.findMany({
