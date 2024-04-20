@@ -6,7 +6,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { FlightsService } from './flights.service';
-import { RecordFlightDto } from './dto/flights.dto';
+import { RecordFlightDto, GetFlightsDto } from './dto/flights.dto';
 
 @Controller('flights')
 export class FlightsController {
@@ -23,5 +23,13 @@ export class FlightsController {
   @Get('/get-destinations')
   async getDestinations() {
     return await this.flightsService.getAllDestinations();
+  }
+
+  @Post('/get-flights')
+  async getFlights(
+    @Body()
+    data: GetFlightsDto,
+  ) {
+    return await this.flightsService.getFlights(data);
   }
 }

@@ -11,3 +11,10 @@ export class RecordFlightDto {
   flight: Flight;
   destinationDetail: DestinationDetail;
 }
+
+export class GetFlightsDto {
+  origin: string;
+  destination: string;
+  date: string;
+  typeFlight: string;
+}

@@ -54,21 +54,6 @@ export class S3Service {
     }
   }
 
-  /*
-  async deleteImage(key: string) {
-    const command = new DeleteObjectCommand({
-      Bucket: process.env.AWS_S3_BUCKET_NAME,
-      Key: key,
-    });
-
-    try {
-      await this.s3Client.send(command);
-      console.log(`Image deleted successfully: ${key}`);
-    } catch (error) {
-      console.error(`Error deleting the image: ${error}`);
-    }
-  }
-
   async getImage(key: string): Promise<string> {
     const command = new GetObjectCommand({
       Bucket: process.env.AWS_S3_BUCKET_NAME,
@@ -85,5 +70,4 @@ export class S3Service {
     // Convertir el Buffer en una cadena en base64
     return buffer.toString('base64');
   }
-  */
 }

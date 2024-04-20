@@ -34,7 +34,7 @@ model Flight {
   boardingTime              String
   arrivalTime               String
   date                      String
-  price                     Decimal
+  price                     Decimal       @db.Decimal(10, 2)
   typeFlight                String
   preventiveRecommendations String
   destinationDetail         Destination[]

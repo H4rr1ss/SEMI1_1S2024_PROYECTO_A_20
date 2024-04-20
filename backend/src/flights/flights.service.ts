@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { S3Service } from '../s3/s3.service';
 
-import { RecordFlightDto } from './dto/flights.dto';
+import { RecordFlightDto, GetFlightsDto } from './dto/flights.dto';
 
 @Injectable()
 export class FlightsService {
@@ -91,5 +91,17 @@ export class FlightsService {
     });
 
     return destinationsArray;
+  }
+
+  async getFlights(data: GetFlightsDto) {
+    const flights = await this.prisma.flight.findMany({
+      where: {
+        origin: data.origin,
+        destination: data.destination,
+        date: data.date,
+        typeFlight: data.typeFlight,
+      },
+    });
+    return flights;
   }
 }
