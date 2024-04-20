@@ -32,6 +32,8 @@ interface Ticket {
     typeFlight: string;
     travellers: number;
     idFlight: number;
+    boardingTime: string;
+    arrivalTime: string;
     flightPrice: number; // Nuevo campo flightPrice
 }
 
@@ -44,6 +46,8 @@ export const tickets: Ticket[] = [
         typeFlight: "Economico",
         travellers: 1,
         idFlight: 1,
+        boardingTime: "08:00",
+        arrivalTime: "10:30",
         flightPrice: 500 // Precio del vuelo ya incluido el precio del tipo de vuelo
     },
     {
@@ -54,6 +58,8 @@ export const tickets: Ticket[] = [
         typeFlight: "Premium",
         travellers: 2,
         idFlight: 2,
+        boardingTime: "12:00",
+        arrivalTime: "15:30",
         flightPrice: 1200 // Precio del vuelo ya incluido el precio del tipo de vuelo
     },
     {
@@ -64,6 +70,8 @@ export const tickets: Ticket[] = [
         typeFlight: "Negocios",
         travellers: 1,
         idFlight: 3,
+        boardingTime: "18:00",
+        arrivalTime: "09:30",
         flightPrice: 800 // Precio del vuelo ya incluido el precio del tipo de vuelo
     }
 ];

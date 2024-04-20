@@ -1,25 +1,43 @@
 import './flight.css'
 import { useState, useEffect } from 'react'
 
-
+interface PropsPayment {
+  setIdFlight: (idFlight: number) => void;
+  setPrice: (price: number) => void;
+}
+interface traveler{
+  typeTraveler: string;
+  quantity: number;
+}
 interface ReserveFlight{
   origin: string;
   destination: string;
   date: string;
   typeFlight: string;
-  travellers: number;
+  travellers: traveler[];
 }
-
 interface FlightProps {
-  date: string;
+  idFlight: string;
   boardingTime: string;
   arrivalTime: string;
   price: number;
+  sets: PropsPayment;
   reserveFlight: ReserveFlight;
 }
 
 const Flight = ( props:FlightProps ) => {
   const [newPrice, setNewPrice] = useState<number>(0);
+  const [isPressed, setIsPressed] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setIsPressed(true);
+    setTimeout(() => {
+      setIsPressed(false);
+    }, 300); // Duración de la animación en milisegundos
+
+    props.sets.setIdFlight(parseInt(props.idFlight));
+    props.sets.setPrice(newPrice);
+  };
 
   useEffect(() => {
     switch (props.reserveFlight.typeFlight) {
@@ -39,8 +57,8 @@ const Flight = ( props:FlightProps ) => {
   }, [props.price, props.reserveFlight.typeFlight]);
 
   return (
-    <div className="f-info bg-gray-100 w-full h-32">
-      <h2>{'Fecha: ' + props.date}</h2>
+    <div className={`f-info bg-gray-100 w-full h-32 ${isPressed ? 'pressed' : ''}`} onClick={handleClick}>
+      <h2>{'Fecha: ' + props.reserveFlight.date}</h2>
       <div className="f-content mt-1 flex justify-between items-center h-24">
         <div className="f-time w-2/3 flex flex-col items-center">
           <div className="w-full flex items-center justify-center">

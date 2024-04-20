@@ -1,8 +1,13 @@
 'use client'
-import './reservation.css'
-import { useState } from 'react';
-import InputReserve from '@/components/ui/input-reserve/Input-reserve';
 import SelectFlight from '@/components/ui/select-flight/Select-flight';
+import InputReserve from '@/components/ui/input-reserve/Input-reserve';
+import { useState } from 'react';
+import './reservation.css'
+
+interface traveler{
+  typeTraveler: string;
+  quantity: number;
+}
 
 export default function Flight_reservation() {
   const [isActive, setIsActive] = useState(false);
@@ -12,19 +17,22 @@ export default function Flight_reservation() {
   const [typeFlight, setTypeFlight] = useState<string>('');
 
   // Inputs viajeros
+  const [passagers, setPassagers] = useState<traveler[]>([]);
   const [adults, setAdults] = useState<number>(0);
   const [young, setYoung] = useState<number>(0);
   const [babies, setBabies] = useState<number>(0);
   const [children, setChildren] = useState<number>(0);
 
-  const handle = () => {
-    console.log("Viajeros")
-    console.log(adults);
-    console.log(young);
-    console.log(babies);
-    console.log(children);
+  const reservationProcess = () => {
+    // Calculo de precios
+    setPassagers([
+      {typeTraveler: "Adultos(de 18 a 64 años)", quantity: adults},
+      {typeTraveler: "Jóvenes(de 15 a 17 años)", quantity: young},
+      {typeTraveler: "Bebés(menores de dos años)", quantity: babies},
+      {typeTraveler: "Niños(de 5 a 11 años)", quantity: children}
+    ])
 
-    setIsActive(!isActive);
+    setIsActive(!isActive)
   }
 
   return (
@@ -53,11 +61,11 @@ export default function Flight_reservation() {
               destination={destination}
               date={date}
               typeFlight={typeFlight}
-              travellers={adults + young + babies + children}
+              travellers={passagers}
             />
           ) : (
             <div className='flex flex-col items-center'>
-              <h1>Reserve su vuelo</h1>
+              <h1>Reserve tu vuelo</h1>
               <div className="mt-16 flex justify-evenly w-full">
                 <div className="input">
                   <input
@@ -96,6 +104,7 @@ export default function Flight_reservation() {
                     value={typeFlight}
                     onChange={(event) => setTypeFlight(event.target.value)}
                   >
+                    <option value="" disabled selected>Tipo de vuelo</option>
                     <option>Economico</option>
                     <option>Premium</option>
                     <option>Negocios</option>
@@ -121,7 +130,7 @@ export default function Flight_reservation() {
               </div>
               <button
                 className="btn-reserve px-4 py-3 mt-3 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
-                onClick={handle}
+                onClick={reservationProcess}
               >
                 Continuar Reserva
               </button>

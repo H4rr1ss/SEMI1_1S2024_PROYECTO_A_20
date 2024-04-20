@@ -1,7 +1,8 @@
 .f-info{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.09), /* Sombra inferior */
-              0 0 10px rgba(0, 0, 0, 0.09) inset, /* Sombra superior */
-              10px 0 10px -10px rgba(0, 0, 0, 0.09), /* Sombra derecha */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.09),
+                0 0 10px rgba(0, 0, 0, 0.09) inset,
+                10px 0 10px -10px rgba(0, 0, 0, 0.09),
                 -10px 0 10px -10px rgba(0, 0, 0, 0.09);
 }
 
@@ -37,4 +38,8 @@
 .f-info .f-content label{
     font-size: 19px;
     font-weight: 500;
+}
+.f-info.pressed {
+    transform: scale(0.97);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
