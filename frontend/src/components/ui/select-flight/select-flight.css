@@ -1,0 +1,8 @@
+.sf-content{
+    margin-top: 15px;
+    width: 92%;
+    height: 80%;
+    overflow-y: auto;
+    white-space: nowrap;
+    cursor: pointer;
+}

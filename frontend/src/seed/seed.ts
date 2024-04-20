@@ -61,7 +61,7 @@ export const tickets: Ticket[] = [
         origin: "London",
         destination: "Berlin",
         date: "2022-12-05",
-        typeFlight: "Business",
+        typeFlight: "Negocios",
         travellers: 1,
         idFlight: 3,
         flightPrice: 800 // Precio del vuelo ya incluido el precio del tipo de vuelo
@@ -128,7 +128,7 @@ export const flights: Flight[] = [
         arrivalTime: "15:30",
         date: "2022-11-05",
         price: 2500,
-        typeFlight: "Business",
+        typeFlight: "Negocios",
         destinationDetails: {
             image: "berlin.jpg",
             description: "Berlin is the capital and largest city of Germany.",
@@ -149,7 +149,7 @@ export const flights: Flight[] = [
         arrivalTime: "09:30",
         date: "2022-12-20",
         price: 3500,
-        typeFlight: "First Class",
+        typeFlight: "Premium",
         destinationDetails: {
             image: "sydney.jpg",
             description: "Sydney is the capital city of the state of New South Wales and the most populous city in Australia.",
@@ -170,7 +170,7 @@ export const flights: Flight[] = [
         arrivalTime: "17:00",
         date: "2022-09-10",
         price: 2000,
-        typeFlight: "Premium Economy",
+        typeFlight: "Premium",
         destinationDetails: {
             image: "newyork.jpg",
             description: "New York City (NYC), often simply called New York, is the most populous city in the United States.",
@@ -191,7 +191,7 @@ export const flights: Flight[] = [
         arrivalTime: "12:30",
         date: "2022-08-25",
         price: 1800,
-        typeFlight: "Economic",
+        typeFlight: "Economico",
         destinationDetails: {
             image: "paris.jpg",
             description: "Paris is the capital and most populous city of France.",

@@ -1,6 +1,7 @@
 'use client'
-import { useState } from 'react'
+import { flights } from '@/seed/seed';
 import './select-flight.css'
+import Flight from '../flight/Flight';
 
 interface ReserveFlight{
   origin: string;
@@ -20,14 +21,27 @@ const SelectFlight = ( props:ReserveFlight ) =>{
     console.log(props.travellers);
   }
 
+
+
 return (
-    <div className="h-full bg-blue-400">
-      <h1>HOLAHOLAHOAL</h1>
+    <div className="h-full flex flex-col items-center">
+      <div className="sf-content grid gap-y-4">
+      {flights.map((flight, index) => (
+        <Flight
+          key={index} // Añade un atributo key para identificar de forma única cada elemento de la lista
+          date={flight.date}
+          boardingTime={flight.boardingTime}
+          arrivalTime={flight.arrivalTime}
+          price={flight.price}
+          reserveFlight={props}
+        />
+      ))}
+      </div>
 
       <button
-        className="btn-reserve px-4 py-3 mt-3 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
+        className="btn-reserve px-4 py-3 mt-5 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
         onClick={handle}
-      >
+        >
         Continuar
       </button>
     </div>
