@@ -39,6 +39,11 @@
     font-size: 12px;
 }
 
+.fr-box .fr-stepsForReservation .step .circle.active{
+    background-color: #373737;
+    color: white;
+}
+
 .fr-box .fr-content{
     background-color: #F1F0ED;
     border: 1px solid #373737;
@@ -82,7 +87,6 @@
 
 .fr-box .fr-content select{
     border: 2px solid #6a6a6a;
-
 }
 
 .fr-box .fr-content .btn-reserve{

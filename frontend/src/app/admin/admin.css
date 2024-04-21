@@ -15,14 +15,9 @@
 }
 
 .container-details-destination{
-    height: 1100px;
+    height: 1150px;
     width: 64%;
     border: 2px solid #373737;
-}
-
-.container-details-destination h2{
-    color: #373737;
-    text-transform: uppercase;
 }
 
 .container-details-destination .header{
@@ -73,4 +68,8 @@
     font-size: 14px;
     padding: 0 2px;
     background: #F1F0ED;
+}
+
+.container-details-flight select{
+    border: 2px solid #6a6a6a;
 }

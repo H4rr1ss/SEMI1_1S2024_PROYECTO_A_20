@@ -1,28 +1,13 @@
 'use client'
 import './payments.css'
-import { useState } from 'react';
-
-interface traveler{
-  typeTraveler: string;
-  quantity: number;
-}
-
-interface Payments{
-  origin: string;
-  destination: string;
-  date: string;
-  typeFlight: string;
-  travellers: traveler[];
-  idFlight: number,
-  boardingTime: string,
-  arrivalTime: string,
-  flightPrice: number,
-}
+import { Payments } from '@/utils/interfaces/reservationFlight.interface';
 
 const SelectFlight = ( props:Payments ) =>{
   let totalPassengers = 0;
+  let finalCost = 0;
 
   const handle = () => {
+    finalCost = totalPassengers * props.flightPrice;
     console.log("Pago")
     console.log("Origen: ", props.origin)
     console.log("Destino: ", props.destination)
@@ -32,7 +17,7 @@ const SelectFlight = ( props:Payments ) =>{
     console.log("ID Vuelo: ", props.idFlight)
     console.log("Hora de abordaje: ", props.boardingTime)
     console.log("Hora de llegada: ", props.arrivalTime)
-    console.log("Precio final del vuelo: ", props.flightPrice)
+    console.log("Precio final del vuelo: ", finalCost)
   }
 
   return (
@@ -107,7 +92,7 @@ const SelectFlight = ( props:Payments ) =>{
       <button
         className="btn-reserve px-4 py-2 mt-5 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
         onClick={handle}
-        >
+      >
         Finalizar Reserva
       </button>
     </div>

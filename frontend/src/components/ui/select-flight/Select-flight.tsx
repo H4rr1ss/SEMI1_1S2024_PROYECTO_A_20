@@ -1,21 +1,10 @@
 'use client'
+import { ReserveFlight } from '@/utils/interfaces/reservationFlight.interface';
 import Payments from '@/components/ui/Payments/Payments';
 import { flights } from '@/seed/seed';
 import Flight from '../flight/Flight';
 import { useState } from 'react';
 import './select-flight.css'
-
-interface traveler{
-  typeTraveler: string;
-  quantity: number;
-}
-interface ReserveFlight{
-  origin: string;
-  destination: string;
-  date: string;
-  typeFlight: string;
-  travellers: traveler[];
-}
 
 const SelectFlight = ( props:ReserveFlight ) =>{
   const [isActive, setIsActive] = useState(false);
@@ -23,6 +12,11 @@ const SelectFlight = ( props:ReserveFlight ) =>{
   // Data Seleccionada
   const [idFlight_, setIdFlight_] = useState<number>(0);
   const [finalPrice_, setFinalPrice_] = useState<number>(0);
+
+  const reservationProcess = () => {
+    props.setActiveIndex(2)
+    setIsActive(!isActive)
+  }
 
 return (
     <>
@@ -56,10 +50,9 @@ return (
             />
           ))}
           </div>
-
           <button
             className="btn-reserve px-4 py-3 mt-5 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
-            onClick={() => setIsActive(!isActive)}
+            onClick={reservationProcess}
             >
             Continuar
           </button>

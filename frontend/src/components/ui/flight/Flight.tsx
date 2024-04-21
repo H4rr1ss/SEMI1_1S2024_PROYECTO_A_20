@@ -1,29 +1,6 @@
-import './flight.css'
+import { FlightProps } from '@/utils/interfaces/reservationFlight.interface';
 import { useState, useEffect } from 'react'
-
-interface PropsPayment {
-  setIdFlight: (idFlight: number) => void;
-  setPrice: (price: number) => void;
-}
-interface traveler{
-  typeTraveler: string;
-  quantity: number;
-}
-interface ReserveFlight{
-  origin: string;
-  destination: string;
-  date: string;
-  typeFlight: string;
-  travellers: traveler[];
-}
-interface FlightProps {
-  idFlight: string;
-  boardingTime: string;
-  arrivalTime: string;
-  price: number;
-  sets: PropsPayment;
-  reserveFlight: ReserveFlight;
-}
+import './flight.css'
 
 const Flight = ( props:FlightProps ) => {
   const [newPrice, setNewPrice] = useState<number>(0);
@@ -33,7 +10,7 @@ const Flight = ( props:FlightProps ) => {
     setIsPressed(true);
     setTimeout(() => {
       setIsPressed(false);
-    }, 300); // Duración de la animación en milisegundos
+    }, 300);
 
     props.sets.setIdFlight(parseInt(props.idFlight));
     props.sets.setPrice(newPrice);

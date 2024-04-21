@@ -13,7 +13,8 @@
     margin: 20px 0;
 }
 
-.container button{
+.container button,
+.container .Link{
     background-color: #3a3a3a;
     color: #fff;
     font-size: 12px;
@@ -27,12 +28,13 @@
     cursor: pointer;
 }
 
-.container button.btn-hidden{
+.container button.btn-hidden,
+.container .Link.btn-hidden{
     background-color: transparent;
     border-color: #fff;
 }
 
-.container form{
+.container .lr-form{
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -41,7 +43,6 @@
     padding: 0 40px;
     height: 100%;
 }
-
 
 .custom-file span {
     display: inline-block;
@@ -59,7 +60,7 @@
     display: none;
 }
 
-.container form h1{
+.container .lr-form h1{
     font-size: 30px;
     font-weight: 800;
     margin-bottom: 10px;

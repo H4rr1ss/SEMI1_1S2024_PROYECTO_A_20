@@ -1,13 +1,9 @@
 'use client'
+import { Traveler } from '@/utils/interfaces/reservationFlight.interface';
 import SelectFlight from '@/components/ui/select-flight/Select-flight';
 import InputReserve from '@/components/ui/input-reserve/Input-reserve';
 import { useState } from 'react';
 import './reservation.css'
-
-interface traveler{
-  typeTraveler: string;
-  quantity: number;
-}
 
 export default function Flight_reservation() {
   const [isActive, setIsActive] = useState(false);
@@ -17,14 +13,21 @@ export default function Flight_reservation() {
   const [typeFlight, setTypeFlight] = useState<string>('');
 
   // Inputs viajeros
-  const [passagers, setPassagers] = useState<traveler[]>([]);
+  const [passagers, setPassagers] = useState<Traveler[]>([]);
   const [adults, setAdults] = useState<number>(1);
   const [young, setYoung] = useState<number>(0);
   const [babies, setBabies] = useState<number>(0);
   const [children, setChildren] = useState<number>(0);
 
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  const steps = [
+    { text: "Detalles vuelo" },
+    { text: "Selección vuelo" },
+    { text: "Pagos" }
+  ];
+
   const reservationProcess = () => {
-    // Calculo de precios
     setPassagers([
       {typeTraveler: "Adulto/s", quantity: adults},
       {typeTraveler: "Jóven/nes", quantity: young},
@@ -32,6 +35,7 @@ export default function Flight_reservation() {
       {typeTraveler: "Niño/s", quantity: children}
     ])
 
+    setActiveIndex(1)
     setIsActive(!isActive)
   }
 
@@ -39,20 +43,14 @@ export default function Flight_reservation() {
     <div className="reserve-page mt-14 flex flex-col items-center relative text-black flex-grow">
       <div className="fr-header w-full h-72"></div>
       <div className="fr-box absolute flex flex-col items-center">
-        <div className="fr-stepsForReservation w-11/12 h-12 flex justify-between rounded-l-2xl rounded-r-2xl">
-          <div className="step">
-            <div className="circle">1</div>
-            <label>Detalles vuelo</label>
+      <div className="fr-stepsForReservation w-11/12 h-12 flex justify-between rounded-l-2xl rounded-r-2xl">
+        {steps.map((step, index) => (
+          <div key={index} className="step">
+            <div className={`circle ${index === activeIndex ? 'active' : ''}`}>{index + 1}</div>
+            <label>{step.text}</label>
           </div>
-          <div className="step">
-            <div className="circle">2</div>
-            <label>Selección vuelo</label>
-          </div>
-          <div className="step">
-            <div className="circle">3</div>
-            <label>Pagos</label>
-          </div>
-        </div>
+        ))}
+      </div>
 
         <div className={`fr-content rounded-b-2xl w-5/6 h-5/6`}>
           {isActive ? (
@@ -62,6 +60,7 @@ export default function Flight_reservation() {
               date={date}
               typeFlight={typeFlight}
               travellers={passagers}
+              setActiveIndex={setActiveIndex}
             />
           ) : (
             <div className='flex flex-col items-center'>
@@ -69,25 +68,24 @@ export default function Flight_reservation() {
               <div className="mt-16 flex justify-evenly w-full">
                 <div className="input">
                   <input
-                      type="text"
-                      required
-                      value={origin}
-                      placeholder='Origen'
-                      onChange={(event) => setOrigin(event.target.value)}
+                    type="text"
+                    required
+                    value={origin}
+                    placeholder='Origen'
+                    onChange={(event) => setOrigin(event.target.value)}
                   />
                   <label>Desde</label>
                 </div>
                 <div className="input">
                   <input
-                      type="text"
-                      required
-                      value={destination}
-                      placeholder='Destino'
-                      onChange={(event) => setDestination(event.target.value)}
+                    type="text"
+                    required
+                    value={destination}
+                    placeholder='Destino'
+                    onChange={(event) => setDestination(event.target.value)}
                   />
                   <label>Hacia</label>
                 </div>
-
               </div>
               <div className="flex justify-evenly mt-9 w-full">
                 <div className="input">
@@ -115,7 +113,6 @@ export default function Flight_reservation() {
                     </svg>
                   </div>
                 </div>
-
               </div>
               <div className="selectPassengers mt-4 w-5/6 h-48 flex flex-col justify-center items-center">
                 <h2 className='mb-5'>Viajeros</h2>
@@ -142,7 +139,7 @@ export default function Flight_reservation() {
                 Continuar Reserva
               </button>
             </div>
-        )}
+          )}
         </div>
       </div>
     </div>
