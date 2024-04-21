@@ -1,29 +1,5 @@
 
 // DATA DE LOGUEO PARA CLIENTE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-interface Client {
-    name: string;
-    lastName: string;
-    phoneNumber: number;
-    nationality: string;
-    email: string;
-    passportNumber: number;
-    password: string;
-    profile_pic: string;
-}
-
-export const client: Client = {
-    name: "Harry",
-    lastName: "Gomez",
-    phoneNumber: 53670191,
-    nationality: "Guatemala",
-    email: "harry@gmail.com",
-    passportNumber: 36013208101011,
-    password: "123",
-    profile_pic: ""
-};
-
-
-// DATA DE TICKETS DEL CLIENTE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 interface Ticket {
     id: string;
     origin: string;
@@ -34,48 +10,73 @@ interface Ticket {
     idFlight: number;
     boardingTime: string;
     arrivalTime: string;
-    flightPrice: number; // Nuevo campo flightPrice
+    flightPrice: number;
+
+    check: boolean;
+}
+interface Client {
+    name: string;
+    lastName: string;
+    phoneNumber: number;
+    nationality: string;
+    email: string;
+    passportNumber: number;
+    password: string;
+    profile_pic: string;
+    tickets: Ticket[];
 }
 
-export const tickets: Ticket[] = [
-    {
-        id: "A3KJ3",
-        origin: "Paris",
-        destination: "Madrid",
-        date: "2022-10-15",
-        typeFlight: "Economico",
-        travellers: 1,
-        idFlight: 1,
-        boardingTime: "08:00",
-        arrivalTime: "10:30",
-        flightPrice: 500 // Precio del vuelo ya incluido el precio del tipo de vuelo
-    },
-    {
-        id: "B7GZ9",
-        origin: "New York",
-        destination: "Los Angeles",
-        date: "2022-11-20",
-        typeFlight: "Premium",
-        travellers: 2,
-        idFlight: 2,
-        boardingTime: "12:00",
-        arrivalTime: "15:30",
-        flightPrice: 1200 // Precio del vuelo ya incluido el precio del tipo de vuelo
-    },
-    {
-        id: "C2HD5",
-        origin: "London",
-        destination: "Berlin",
-        date: "2022-12-05",
-        typeFlight: "Negocios",
-        travellers: 1,
-        idFlight: 3,
-        boardingTime: "18:00",
-        arrivalTime: "09:30",
-        flightPrice: 800 // Precio del vuelo ya incluido el precio del tipo de vuelo
-    }
-];
-
+export const client: Client = {
+    name: "Harry",
+    lastName: "Gomez",
+    phoneNumber: 53670191,
+    nationality: "Guatemala",
+    email: "harry@gmail.com",
+    passportNumber: 36013208101011,
+    password: "123",
+    profile_pic: "",
+    tickets: [
+        {
+            id: "A3KJ3",
+            origin: "Paris",
+            destination: "Madrid",
+            date: "2022-10-15",
+            typeFlight: "Economico",
+            travellers: 1,
+            idFlight: 1,
+            boardingTime: "08:00",
+            arrivalTime: "10:30",
+            flightPrice: 500, // Precio del vuelo ya incluido el precio del tipo de vuelo
+            check: false
+        },
+        {
+            id: "B7GZ9",
+            origin: "New York",
+            destination: "Los Angeles",
+            date: "2022-11-20",
+            typeFlight: "Premium",
+            travellers: 2,
+            idFlight: 2,
+            boardingTime: "12:00",
+            arrivalTime: "15:30",
+            flightPrice: 1200, // Precio del vuelo ya incluido el precio del tipo de vuelo
+            check: true
+        },
+        {
+            id: "C2HD5",
+            origin: "London",
+            destination: "Berlin",
+            date: "2022-12-05",
+            typeFlight: "Negocios",
+            travellers: 1,
+            idFlight: 3,
+            boardingTime: "18:00",
+            arrivalTime: "09:30",
+            flightPrice: 800, // Precio del vuelo ya incluido el precio del tipo de vuelo
+            check: false
+        }
+    ]
+};
 
 // DATA DE REGISTRO DE VUELOS - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 interface Flight {

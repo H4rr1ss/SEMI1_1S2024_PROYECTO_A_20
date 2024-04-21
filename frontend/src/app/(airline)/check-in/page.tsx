@@ -1,6 +1,23 @@
+'use client'
 import './check-in.css'
+import { useState } from 'react'
 
 export default function Check_in() {
+  const [codeReservation, setCodeReservation] = useState('')
+  const [lastName, setLastName] = useState('')
+
+  const handleCheckIn = () => {
+    const checkIn = {
+      codeReservation: codeReservation,
+      lastName: lastName
+    }
+
+    setCodeReservation('')
+    setLastName('')
+
+    console.log(checkIn)
+  }
+
   return (
     <div className="check-page mt-14 flex flex-col items-center relative flex-grow">
 
@@ -14,13 +31,18 @@ export default function Check_in() {
         <div className="inputs h-44 flex flex-col justify-center items-center gap-y-12 mt-9">
           <div className="input-field">
               <input
-                  required
+                required
+                value={codeReservation}
+                onChange={(event) => setCodeReservation(event.target.value)}
               />
               <label>Código de reserva</label>
           </div>
           <div className="input-field">
               <input
-                  required
+                required
+                value={lastName}
+                style={{ textTransform: 'uppercase' }}
+                onChange={(event) => setLastName(event.target.value)}
               />
               <label>Apellido</label>
           </div>
@@ -29,6 +51,7 @@ export default function Check_in() {
         <div className="box-button w-full flex justify-center mt-4">
           <button
             className="px-4 py-3 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
+            onClick={handleCheckIn}
           >
             Guardar Cambios
           </button>
