@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <>
+    <div className='flex-grow'>
       {/* CARROUSEL */}
-      <div className="slider-box bg-blue-500">
+      <div className="slider-box bg-blue-600">
         <ul>
           <li>
             <Image
@@ -120,6 +120,6 @@ export default function Home() {
           </p>
         </div>
       </div>
-    </>
+    </div>
   )
 }
