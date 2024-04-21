@@ -1,0 +1,92 @@
+
+.p-box .resume{
+    padding: 10px 10px 10px 10px;
+    font-size: 15px;
+    border: 1px solid #373737;
+}
+
+.p-box .card{
+    padding: 10px 10px 10px 10px;
+    font-size: 15px;
+    border: 1px solid #373737;
+}
+
+.p-box .resume h2{
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.p-box .resume .cant h3{
+    width: 100px;
+}
+
+.p-box .resume .cant label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
+}
+
+.p-box .resume .line{
+    border: 1px solid #373737;
+    width: 330px;
+    margin-top: 10px;
+}
+
+.p-box .resume .total{
+    font-weight: bold;
+}
+.p-box .resume .total label{
+    width: 72px;
+}
+
+.p-box .card h2{
+    font-size: 14px;
+}
+
+.p-box .card .input-field input{
+    width: 400px;
+    height: 38px;
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 0 15px;
+    border: 2px solid #6a6a6a;
+    background: transparent;
+    color: #000000;
+    outline: none;
+}
+
+.p-box .card .input-field label{
+    position: absolute;
+    top: 0;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 14px;
+    padding: 0 2px;
+    background: #F1F0ED;
+}
+
+.p-box .card .input-field2 input{
+    width: 140px;
+    height: 38px;
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 0 15px;
+    border: 2px solid #6a6a6a;
+    background: transparent;
+    color: #000000;
+    outline: none;
+    text-align: center;
+}
+
+.p-box .card .input-field2 label{
+    position: absolute;
+    top: 0;
+    left: 8px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 14px;
+    padding: 0 2px;
+    background: #F1F0ED;
+}

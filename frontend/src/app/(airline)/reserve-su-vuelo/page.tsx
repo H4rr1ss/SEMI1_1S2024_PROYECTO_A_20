@@ -18,7 +18,7 @@ export default function Flight_reservation() {
 
   // Inputs viajeros
   const [passagers, setPassagers] = useState<traveler[]>([]);
-  const [adults, setAdults] = useState<number>(0);
+  const [adults, setAdults] = useState<number>(1);
   const [young, setYoung] = useState<number>(0);
   const [babies, setBabies] = useState<number>(0);
   const [children, setChildren] = useState<number>(0);
@@ -26,10 +26,10 @@ export default function Flight_reservation() {
   const reservationProcess = () => {
     // Calculo de precios
     setPassagers([
-      {typeTraveler: "Adultos(de 18 a 64 años)", quantity: adults},
-      {typeTraveler: "Jóvenes(de 15 a 17 años)", quantity: young},
-      {typeTraveler: "Bebés(menores de dos años)", quantity: babies},
-      {typeTraveler: "Niños(de 5 a 11 años)", quantity: children}
+      {typeTraveler: "Adulto/s", quantity: adults},
+      {typeTraveler: "Jóven/nes", quantity: young},
+      {typeTraveler: "Bebé/s", quantity: babies},
+      {typeTraveler: "Niño/s", quantity: children}
     ])
 
     setIsActive(!isActive)
@@ -120,7 +120,14 @@ export default function Flight_reservation() {
               <div className="selectPassengers mt-4 w-5/6 h-48 flex flex-col justify-center items-center">
                 <h2 className='mb-5'>Viajeros</h2>
                 <div className="w-full flex justify-evenly">
-                  <InputReserve text="Adultos (de 18 a 64 años)" value={adults} setValue={setAdults} />
+                  <div className="rv-input-reserve flex">
+                    <label>Adultos (de 18 a 64 años)</label>
+                    <div className="flex items-center">
+                      <button className="px-3 py-1 bg-gray-300 text-gray-700 rounded-l focus:outline-none" onClick={() => adults > 1 ? setAdults(adults - 1) : null}>-</button>
+                      <input type="text" className="w-16 px-2 py-1 bg-white text-gray-700 border border-gray-400 rounded-none focus:outline-none text-center" value={adults} />
+                      <button className="px-3 py-1 bg-gray-200 text-gray-700 rounded-r focus:outline-none" onClick={() => {setAdults(adults + 1)}}>+</button>
+                    </div>
+                  </div>
                   <InputReserve text="Jóvenes(de 15 a 17 años)" value={young} setValue={setYoung} />
                 </div>
                 <div className="w-full flex mt-8 justify-evenly">
