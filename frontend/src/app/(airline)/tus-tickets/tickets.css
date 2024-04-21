@@ -11,30 +11,71 @@
     gap: 26px;
 }
 
-.tickets .ticket{
+
+
+
+
+.ticket{
     padding: 10px 10px 10px 10px;
+    color: #373737;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1),
+                0 0 10px rgba(0, 0, 0, 0.1) inset,
+                10px 0 10px -10px rgba(0, 0, 0, 0.1),
+                -10px 0 10px -10px rgba(0, 0, 0, 0.1);
 }
 
-.tickets .ticket .travel{
+.ticket .travel{
     gap: 5px;
 }
 
-.tickets .ticket .travel .icon{
+.ticket .travel .icon{
     gap: 5px;
 }
-.tickets .ticket .travel .icon label{
+.ticket .travel .icon label{
     font-weight: bold;
 }
 
-
-
-
-
-.tickets .ticket .content{
-    gap: 10px;
+.ticket .content{
+    gap: 30px;
 }
-.tickets .ticket .content .line{
+
+.ticket .content .line{
     border: 1px solid #373737;
     height: 105px;
     width: 1px;
+}
+
+.ticket .content .info-l,
+.ticket .content .info-r{
+    height: 90%;
+    gap: 10px;
+}
+
+.ticket .content .info-c{
+    height: 90%;
+    color: #323131;
+}
+
+.ticket .content .info-l .route{
+    width: 300px;
+    height: 30px;
+}
+
+.ticket .content .info-l .line{
+    border: 1px solid #373737;
+    width: 100%;
+    height: 1px;
+}
+
+.ticket .content .info-c{
+    font-size: 12px;
+    gap: 10px;
+}
+
+.ticket .content .info-r{
+    font-size: 16px;
+}
+
+.ticket .footer{
+    gap: 10px;
 }

@@ -59,7 +59,7 @@ export const client: Client = {
             idFlight: 2,
             boardingTime: "12:00",
             arrivalTime: "15:30",
-            flightPrice: 1200, // Precio del vuelo ya incluido el precio del tipo de vuelo
+            flightPrice: 12002, // Precio del vuelo ya incluido el precio del tipo de vuelo
             check: true
         },
         {
