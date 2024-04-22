@@ -1,0 +1,47 @@
+.box-image{
+    width: 32rem;
+    height: 20rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.09),
+                0 0 10px rgba(0, 0, 0, 0.09) inset,
+                10px 0 10px -10px rgba(0, 0, 0, 0.09),
+                -10px 0 10px -10px rgba(0, 0, 0, 0.09);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.box-image:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.17),
+                0 0 10px rgba(0, 0, 0, 0.17) inset,
+                10px 0 10px -10px rgba(0, 0, 0, 0.17),
+                -10px 0 10px -10px rgba(0, 0, 0, 0.17);
+}
+
+.box-image .image{
+    height: 56%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.box-image .texot{
+    height: 44%;
+}
+
+.box-image .texto h2{
+    margin-top: 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+}
+.box-image .texto h1{
+    margin-top: 1px;
+    font-size: 22px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+.box-image .texto h3{
+    margin-top: 20px;
+    font-weight: 500;
+}

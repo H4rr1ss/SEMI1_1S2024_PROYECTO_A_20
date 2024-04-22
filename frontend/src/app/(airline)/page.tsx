@@ -1,5 +1,7 @@
-import './initialP.css'
+'use client'
 import Image from 'next/image';
+import Link from 'next/link';
+import './initialP.css'
 
 export default function Home() {
   return (
@@ -80,9 +82,12 @@ export default function Home() {
               </svg>
             </div>
             <h4>DESTINOS</h4>
-            <button className="px-9 py-2 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition">
+            <Link
+              className="p-Link px-9 py-2 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
+              href={"./destinos"}
+            >
               Ver más
-            </button>
+            </Link>
           </div>
           <div className="passenger-rights flex flex-col items-center justify-center h-80 w-1/4 ">
             <div className="circle flex items-center justify-center">

@@ -212,3 +212,64 @@ export const flights: Flight[] = [
         preventiveRecommendations: "Be mindful of pickpockets in crowded tourist areas."
     }
 ]
+
+interface destinations {
+    name: string;
+    country: string;
+    image: string;
+    description: string;
+    keywords: string[];
+    places: Place[];
+    preventRecommendations: string;
+}
+
+export const destinations: destinations[] = [
+    {
+        name: "Madrid",
+        country: "Spain",
+        image: "../../imas/destinations/madrid.webp",
+        description: "Madrid is the capital and largest city of Spain.",
+        keywords: ["Spain", "Madrid", "city", "capital"],
+        places: [
+            { name: "Plaza Mayor", description: "Historic square in the heart of Madrid." },
+            { name: "Prado Museum", description: "Renowned art museum featuring works by European masters." }
+        ],
+        preventRecommendations: "Be sure to have all necessary travel documents and check local COVID-19 guidelines before departure."
+    },
+    {
+        name: "Berlin",
+        country: "Germany",
+        image: "../../imas/destinations/berlin.jpg",
+        description: "Berlin is the capital and largest city of Germany.",
+        keywords: ["Germany", "Berlin", "city", "capital"],
+        places: [
+            { name: "Brandenburg Gate", description: "Iconic neoclassical monument." },
+            { name: "Checkpoint Charlie", description: "Former border crossing point between East and West Berlin." }
+        ],
+        preventRecommendations: "Pack appropriate clothing for the season and comfortable walking shoes."
+    },
+    {
+        name: "Sydney",
+        country: "Australia",
+        image: "../../imas/destinations/sidney.jpg",
+        description: "Sydney is the capital city of the state of New South Wales and the most populous city in Australia.",
+        keywords: ["Australia", "Sydney", "city", "capital"],
+        places: [
+            { name: "Sydney Opera House", description: "Iconic performing arts venue." },
+            { name: "Bondi Beach", description: "Popular beach in Sydney." }
+        ],
+        preventRecommendations: "Bring sunscreen and stay hydrated during outdoor activities."
+    },
+    {
+        name: "New York",
+        country: "United States",
+        image: "../../imas/destinations/newYork.jpg",
+        description: "New York City (NYC), often simply called New York, is the most populous city in the United States.",
+        keywords: ["United States", "New York", "city", "populous"],
+        places: [
+            { name: "Times Square", description: "Iconic commercial and entertainment hub." },
+            { name: "Central Park", description: "Urban park in Manhattan." }
+        ],
+        preventRecommendations: "Plan ahead for popular attractions and consider booking tickets in advance."
+    }
+]

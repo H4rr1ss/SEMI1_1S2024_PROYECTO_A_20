@@ -1,0 +1,30 @@
+.destinatios-page{
+    color: black;
+}
+
+.destinatios-page .header{
+    background-image: url('/imas/headers/destinations.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.destinatios-page .header h2{
+    top: 85px;
+    width: 100%;
+    color: white;
+    font-size: 45px;
+    font-weight: 800;
+    text-align: center;
+    position: absolute;
+    padding: 25px 260px 25px 260px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
+
+.box-destinations{
+    height: auto;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+    width: 1110px;
+    padding: 10px 0px 10px 0px;
+}
