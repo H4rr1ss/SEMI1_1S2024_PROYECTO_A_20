@@ -3,9 +3,12 @@ import { handleDisabled, newClient, changePhoto } from '@/utils/functions/ver-ed
 import InputProfile from '@/components/ui/input-profile/Input-profile'
 import { useState, useEffect, useRef } from 'react'
 import './ver-editar-perfil.css'
-import { client } from '@/seed/seed'
+import { useClientStore } from '@/store/store'
 
 export default function ViewEditProfile() {
+  // Zustand
+  const clientStore = useClientStore();
+
   // Detalles usuario
   const [name, setName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
@@ -13,25 +16,27 @@ export default function ViewEditProfile() {
   const [passportNumber, setPassportNumber] = useState<string>("");
   const [phoneNumber, setPhone] = useState<string>("");
   const [nationality, setNationality] = useState<string>("");
-  const [profile_pic, setProfilePic] = useState<string>("https://picsum.photos/200/300");
+  const [profile_pic, setProfilePic] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Funcionalidades
   const [selectedSVG, setSelectedSVG] = useState('');
 
   useEffect(() => {
-    // Asignar el valor de client.name al estado name al cargar la página
+    const client = clientStore.getStore_getInfoProfile();
     setName(client.name);
     setLastName(client.lastName);
     setEmail(client.email);
     setPassportNumber(client.passportNumber.toString());
     setPhone(client.phoneNumber.toString());
     setNationality(client.nationality)
-  }, []);
+    setProfilePic(client.profile_pic);
+  }, [clientStore]);
 
   const handleClickSaveChanges = () => {
-    const Client = newClient(name, lastName, email, passportNumber, phoneNumber, nationality, profile_pic, client.password);
-    console.log(Client);
+    //const Client = newClient(name, lastName, email, passportNumber, phoneNumber, nationality, profile_pic);
+    const x = clientStore.getStore_getInfoProfile();
+    console.log(x.passportNumber);
   }
 
   const handleClickInputSVG = () => {

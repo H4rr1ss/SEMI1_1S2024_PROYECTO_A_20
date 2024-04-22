@@ -20,7 +20,6 @@ export const newClient = (
   phoneNumber:string,
   nationality:string,
   profile_pic:string,
-  password:string
 ) => {
   return {
     name: name,
@@ -30,7 +29,6 @@ export const newClient = (
     phoneNumber: parseInt(phoneNumber),
     nationality: nationality,
     profile_pic: profile_pic,
-    password: password,
   }
 }
 

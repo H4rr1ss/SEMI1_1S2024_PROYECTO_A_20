@@ -34,7 +34,7 @@ export const client: Client = {
     email: "harry@gmail.com",
     passportNumber: 36013208101011,
     password: "123",
-    profile_pic: "",
+    profile_pic: "https://picsum.photos/200/300",
     tickets: [
         {
             id: "A3KJ3",

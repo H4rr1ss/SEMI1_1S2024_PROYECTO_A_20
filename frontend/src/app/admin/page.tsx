@@ -4,8 +4,11 @@ import InputAdmin from '@/components/ui/input-admin/Input-admin';
 import { useState } from 'react';
 import Link from "next/link"
 import './admin.css'
+import { useClientStore } from '@/store/store'
 
 export default function Admin(){
+  const clientStore = useClientStore();
+
   // Detalles vuelo
   const [destinationCountry, setDestinationCountry] = useState<string>("");
   const [destination, setDestination] = useState<string>("");
@@ -72,6 +75,9 @@ export default function Admin(){
     setDescription2("");
     setPreventionRecommendations("");
 
+    const x = clientStore.getStore_getInfoProfile();
+    console.log(x.name)
+    console.log("..................")
     console.log(flight);
   }
 

@@ -1,10 +1,17 @@
 'use client'
-import { useState } from 'react'
 import { newClientLogin, handleFileChange } from '@/utils/functions/login-register.funcs';
-import Link from 'next/link';
+import { useClientStore } from '@/store/store';
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import './login.css'
 
+// Seed
+import { client } from '@/seed/seed';
+
 const Login = () =>{
+  const router = useRouter();
+  const clientStore = useClientStore();
+
   const [isActive, setIsActive] = useState<boolean>(false);
 
   // inputs Login
@@ -36,12 +43,32 @@ const Login = () =>{
   }
 
   const handleClickLogin = () => {
-    if (!(l_email === "admin" && l_password === "admin")) {
-      const newLogin = { email: l_email, password: l_password }
-      setL_email('');
-      setL_password('');
-      console.log(newLogin)
+    if (l_email === "admin" && l_password === "admin") {
+      router.push('/admin')
+      return;
     }
+
+    const newLogin = { email: l_email, password: l_password }
+
+    // Clear inputs
+    setL_email('');
+    setL_password('');
+
+    // Funcion de api que recibe como parametro el objeto newLogin-
+    // response es el objeto que retorna la api
+    const response = client;
+
+    // Validar si el objeto está vacío
+    if (Object.keys(response).length === 0) {
+      return;
+    }
+
+    // Setear el objeto en el estado global
+    clientStore.setStore_Client(response);
+    console.log("login exitoso!")
+
+    // Redireccionar a la página de perfil
+    router.push('/')
   }
 
   return (
@@ -134,7 +161,7 @@ const Login = () =>{
               value={l_password}
               onChange={(e) => setL_password(e.target.value)}
             />
-            <Link href={l_email === 'admin' && l_password === 'admin' ? '/admin' : ''} className="Link" onClick={handleClickLogin}>Ingresar</Link>
+            <button onClick={handleClickLogin}>Ingresar</button>
           </div>
         </div>
         <div className="toggle-container">
