@@ -1,6 +1,6 @@
 
 // DATA DE LOGUEO PARA CLIENTE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-interface Ticket {
+export interface Ticket {
     id: string;
     origin: string;
     destination: string;
