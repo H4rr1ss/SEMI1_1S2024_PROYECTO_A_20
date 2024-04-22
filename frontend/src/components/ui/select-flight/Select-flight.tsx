@@ -37,17 +37,17 @@ return (
           <div className="sf-content grid gap-y-4">
           {flights.map((flight, index) => (
             <Flight
-            key={index}
-            idFlight={flight.id.toString()}
-            boardingTime={flight.boardingTime}
-            arrivalTime={flight.arrivalTime}
-            price={flight.price}
-            sets={{
-              setIdFlight: setIdFlight_,
-              setPrice: setFinalPrice_
-            }}
-            reserveFlight={props}
-            />
+              key={index}
+              idFlight={flight.id.toString()}
+              boardingTime={flight.boardingTime}
+              arrivalTime={flight.arrivalTime}
+              price={flight.price}
+              sets={{
+                setIdFlight: setIdFlight_,
+                setPrice: setFinalPrice_
+              }}
+              reserveFlight={props}
+              />
           ))}
           </div>
           <button

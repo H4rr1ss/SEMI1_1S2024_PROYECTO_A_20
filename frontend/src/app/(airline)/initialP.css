@@ -77,7 +77,8 @@
     margin-bottom: 20px;
 }
 
-.options button{
+.options button,
+.options .p-Link{
     border-radius: 10px;
     border: 2px solid #AD0909;
     font-size: 20px;

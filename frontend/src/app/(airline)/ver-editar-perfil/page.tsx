@@ -2,8 +2,8 @@
 import { handleDisabled, newClient, changePhoto } from '@/utils/functions/ver-editar-perfil.funcs'
 import InputProfile from '@/components/ui/input-profile/Input-profile'
 import { useState, useEffect, useRef } from 'react'
-import './ver-editar-perfil.css'
 import { useClientStore } from '@/store/store'
+import './ver-editar-perfil.css'
 
 export default function ViewEditProfile() {
   // Zustand
