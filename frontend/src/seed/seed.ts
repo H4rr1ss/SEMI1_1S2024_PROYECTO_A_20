@@ -27,7 +27,7 @@ interface Client {
 }
 
 export const client: Client = {
-    name: "Harry",
+    name: "Alejandro",
     lastName: "Gomez",
     phoneNumber: 53670191,
     nationality: "Guatemala",

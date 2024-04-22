@@ -36,15 +36,26 @@ const TopMenu = () => {
               Ingreso/Registro
             </Link>
           ) : (
-            <Link className="item h-14 w-32 ml-14 flex items-center justify-center gap-1" href={"/ver-editar-perfil"}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user-square-rounded" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M12 13a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z" />
-                <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
-                <path d="M6 20.05v-.05a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v.05" />
-              </svg>
-              {clientStore.getStore_Name()}
-            </Link>
+            <div className="flex items-center justify-center w-full gap-5">
+              <Link className="item h-14 w-auto flex items-center justify-center gap-1" href={"/ver-editar-perfil"}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user-square-rounded" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M12 13a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z" />
+                  <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
+                  <path d="M6 20.05v-.05a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v.05" />
+                </svg>
+                {clientStore.getStore_Name()}
+              </Link>
+              <Link className="item flex justify-center items-center h-14 w-32 gap-3" href={"/"} onClick={() => {clientStore.clearStore_Client()}}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-logout-2" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
+                  <path d="M15 12h-12l3 -3" />
+                  <path d="M6 15l-3 -3" />
+                </svg>
+                Cerrar Sesión
+              </Link>
+            </div>
           )}
         </div>
       </div>

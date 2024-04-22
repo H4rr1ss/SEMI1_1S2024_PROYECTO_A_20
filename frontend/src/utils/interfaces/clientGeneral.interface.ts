@@ -59,6 +59,7 @@ export interface ClientStore {
     // Setters
     setStore_Name: (name: string) => void;
     setStore_Client: (client: Client) => void;
+    clearStore_Client: () => void;
     setStore_InfoEditProfile: (
         name: string,
         lastName: string,
@@ -72,6 +73,4 @@ export interface ClientStore {
     // Getters
     getStore_Name: () => string;
     getStore_getInfoProfile: () => DataEditProfile;
-    getStore_TicketsClient: () => void;
-
 }

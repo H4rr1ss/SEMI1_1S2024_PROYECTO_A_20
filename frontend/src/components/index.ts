@@ -8,3 +8,5 @@ export * from './ui/input-profile/Input-profile';
 export * from './ui/input-reserve/Input-reserve';
 export * from './ui/select-flight/Select-flight';
 export * from './ui/flight/Flight';
+export * from './ui/Payments/Payments';
+export * from './ui/ticket/Ticket'

@@ -21,6 +21,20 @@ export const useClientStore = create<ClientStore>((set, get) => ({
     set(client);
   },
 
+  clearStore_Client: () => {
+    set({
+      name: "",
+      lastName: "",
+      email: "",
+      passportNumber: 0,
+      phoneNumber: 0,
+      nationality: "",
+      password: "",
+      profile_pic: "",
+      tickets: []
+    });
+  },
+
   setStore_InfoEditProfile: (
       name_: string,
       lastName_: string,
@@ -50,9 +64,5 @@ export const useClientStore = create<ClientStore>((set, get) => ({
   getStore_getInfoProfile: () => {
     const { name, lastName, email, passportNumber, phoneNumber, nationality, profile_pic } = get();
     return { name, lastName, email, passportNumber, phoneNumber, nationality, profile_pic };
-  },
-
-  getStore_TicketsClient: () => {
-    set((state) => ({ tickets: state.tickets }));
   },
 }));
