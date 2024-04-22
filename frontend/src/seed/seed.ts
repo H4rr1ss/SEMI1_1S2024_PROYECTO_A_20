@@ -27,12 +27,12 @@ interface Client {
 }
 
 export const client: Client = {
-    name: "Alejandro",
-    lastName: "Gomez",
-    phoneNumber: 53670191,
+    name: "Maia",
+    lastName: "Alvarado",
+    phoneNumber: 53240691,
     nationality: "Guatemala",
-    email: "harry@gmail.com",
-    passportNumber: 36013208101011,
+    email: "maia15@gmail.com",
+    passportNumber: 2601220810121,
     password: "123",
     profile_pic: "https://picsum.photos/200/300",
     tickets: [
