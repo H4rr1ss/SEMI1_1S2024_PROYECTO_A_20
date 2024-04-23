@@ -10,10 +10,7 @@ interface Props{
 
 const DetalleDestino = ({ params }: Props) => {
   const { id } = params;
-  console.log(destinations)
   const props: PropsDestinationDetail | undefined = destinations.find((destination) => destination.country === decodeURIComponent(id));
-
-  console.log(id)
 
   if (!props) {
       return <div className='mt-16 text-center text-black'>No se encontró el destino</div>;
