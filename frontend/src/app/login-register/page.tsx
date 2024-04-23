@@ -1,7 +1,8 @@
 "use client";
 import {
   handleFileChange,
-  handleRegisterUser,
+  handleRegisterClient,
+  handleLoginClient,
 } from "@/utils/functions/login-register.funcs";
 import { useClientStore } from "@/store/store";
 import { useRouter } from "next/navigation";
@@ -33,7 +34,7 @@ const Login = () => {
   const [imageName, setImageName] = useState<string>("");
 
   const handleClickRegister = () => {
-    handleRegisterUser(
+    handleRegisterClient(
       name,
       lastName,
       email,
@@ -69,27 +70,25 @@ const Login = () => {
       return;
     }
 
-    const newLogin = { email: l_email, password: l_password };
+    handleLoginClient(l_email, l_password)
+      .then(async (response) => {
+        const data = await response.json();
+        console.log("Usuario logeado con éxito", data);
+
+        // Setear el objeto en el estado global
+        clientStore.setStore_Client(data);
+        console.log(clientStore.getStore_getInfoProfile());
+
+        // Redireccionar a la página de perfil
+        router.push("/");
+      })
+      .catch((error) => {
+        console.error("Ocurrió un error al logear el usuario", error);
+      });
 
     // Clear inputs
     setL_email("");
     setL_password("");
-
-    // Funcion de api que recibe como parametro el objeto newLogin-
-    // response es el objeto que retorna la api
-    const response = client;
-
-    // Validar si el objeto está vacío
-    if (Object.keys(response).length === 0) {
-      return;
-    }
-
-    // Setear el objeto en el estado global
-    clientStore.setStore_Client(response);
-    console.log("login exitoso!");
-
-    // Redireccionar a la página de perfil
-    router.push("/");
   };
 
   return (

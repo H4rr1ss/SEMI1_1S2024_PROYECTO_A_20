@@ -14,15 +14,16 @@ datasource db {
 }
 
 model Client {
-  id             Int     @id @default(autoincrement())
+  id             Int      @id @default(autoincrement())
   firstName      String
   lastName       String
-  email          String  @unique
+  email          String   @unique
   passportNumber Int
   phoneNumber    Int
   nationality    String
   password       String
   profilePicture String?
+  tickets        Ticket[]
 }
 
 model Flight {
@@ -37,7 +38,7 @@ model Flight {
   price                     Decimal       @db.Decimal(10, 2)
   typeFlight                String
   preventiveRecommendations String
-  destinationDetail         Destination[]
+  destinationDetails        Destination[]
 }
 
 model Destination {
@@ -45,14 +46,33 @@ model Destination {
   image       String?
   description String
   places      Place[]
-  flightId    Int
-  flight      Flight  @relation(fields: [flightId], references: [id])
+
+  flightId Int
+  flight   Flight @relation(fields: [flightId], references: [id])
 }
 
 model Place {
-  id            Int         @id @default(autoincrement())
-  name          String
-  description   String
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+
   destinationId Int
   destination   Destination @relation(fields: [destinationId], references: [id])
+}
+
+model Ticket {
+  id           Int     @id @default(autoincrement())
+  origin       String
+  destination  String
+  date         String
+  typeFlight   String
+  travellers   Int
+  boardingTime String
+  arrivalTime  String
+  price        Decimal @db.Decimal(10, 2)
+  check        Boolean
+  idFlight     Int
+
+  clientId Int
+  client   Client @relation(fields: [clientId], references: [id])
 }

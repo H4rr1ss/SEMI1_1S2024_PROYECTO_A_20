@@ -16,8 +16,8 @@ export class FlightsService {
 
   async recordFlight(data: RecordFlightDto) {
     const { flight } = data;
-    const { destinationDetail } = data;
-    const { destination, destinationImage, places } = destinationDetail;
+    const { destinationDetails } = data;
+    const { destinationImage, places } = destinationDetails;
 
     // Registrar vuelo en la base de datos
     const newFlight = await this.prisma.flight.create({
@@ -38,7 +38,7 @@ export class FlightsService {
     // Registrar un destino en la base de datos
     const newDestination = await this.prisma.destination.create({
       data: {
-        description: destination.description,
+        description: destinationDetails.description,
         flightId: newFlight.id,
       },
     });
@@ -72,7 +72,7 @@ export class FlightsService {
   async getAllDestinations() {
     const allFlights = await this.prisma.flight.findMany({
       include: {
-        destinationDetail: {
+        destinationDetails: {
           include: {
             places: true,
           },
@@ -82,7 +82,7 @@ export class FlightsService {
 
     const destinationsArray = await Promise.all(
       allFlights.map(async (flight) => {
-        const destinationDetail = flight.destinationDetail[0];
+        const destinationDetail = flight.destinationDetails[0];
 
         // Obtenemos las etiquetas de la imagen
         const labels = await this.getLabels(destinationDetail.image);

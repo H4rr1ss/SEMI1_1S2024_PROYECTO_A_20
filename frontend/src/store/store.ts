@@ -1,20 +1,23 @@
-import { ClientStore, Client } from "@/utils/interfaces/clientGeneral.interface";
+import {
+  ClientStore,
+  Client,
+} from "@/utils/interfaces/clientGeneral.interface";
 import { create } from "zustand";
 
 export const useClientStore = create<ClientStore>((set, get) => ({
-  name: "",
+  firstName: "",
   lastName: "",
   phoneNumber: 0,
   nationality: "",
   email: "",
   passportNumber: 0,
   password: "",
-  profile_pic: "",
+  profilePicture: "",
   tickets: [],
 
   // ---------------------------------------- Setters ----------------------------------------
   setStore_Name: (name_: string) => {
-    set({ name: name_ });
+    set({ firstName: name_ });
   },
 
   setStore_Client: (client: Client) => {
@@ -23,46 +26,62 @@ export const useClientStore = create<ClientStore>((set, get) => ({
 
   clearStore_Client: () => {
     set({
-      name: "",
+      firstName: "",
       lastName: "",
       email: "",
       passportNumber: 0,
       phoneNumber: 0,
       nationality: "",
       password: "",
-      profile_pic: "",
-      tickets: []
+      profilePicture: "",
+      tickets: [],
     });
   },
 
   setStore_InfoEditProfile: (
-      name_: string,
-      lastName_: string,
-      email_: string,
-      passportNumber_: number,
-      phoneNumber_: number,
-      nationality_: string,
-      profilePic_: string
+    name_: string,
+    lastName_: string,
+    email_: string,
+    passportNumber_: number,
+    phoneNumber_: number,
+    nationality_: string,
+    profilePic_: string
   ) => {
     set({
-      name: name_,
+      firstName: name_,
       lastName: lastName_,
       email: email_,
       passportNumber: passportNumber_,
       phoneNumber: phoneNumber_,
       nationality: nationality_,
-      profile_pic: profilePic_,
+      profilePicture: profilePic_,
     });
   },
 
   // ---------------------------------------- Getters ----------------------------------------
   getStore_Name: () => {
-      const { name } = get();
-      return name;
+    const { firstName } = get();
+    return firstName;
   },
 
   getStore_getInfoProfile: () => {
-    const { name, lastName, email, passportNumber, phoneNumber, nationality, profile_pic } = get();
-    return { name, lastName, email, passportNumber, phoneNumber, nationality, profile_pic };
+    const {
+      firstName,
+      lastName,
+      email,
+      passportNumber,
+      phoneNumber,
+      nationality,
+      profilePicture,
+    } = get();
+    return {
+      firstName,
+      lastName,
+      email,
+      passportNumber,
+      phoneNumber,
+      nationality,
+      profilePicture,
+    };
   },
 }));

@@ -1,5 +1,9 @@
 import { ChangeEvent } from "react";
-import { registerUserAPI, cognitoAuthAPI } from "../api/auth.api";
+import {
+  registerClientAPI,
+  cognitoAuthAPI,
+  loginClientAPI,
+} from "../api/auth.api";
 
 export const handleFileChange = (
   event: ChangeEvent<HTMLInputElement>,
@@ -28,7 +32,7 @@ export const handleFileChange = (
   reader.readAsDataURL(file);
 };
 
-export const handleRegisterUser = async (
+export const handleRegisterClient = async (
   firstName: string,
   lastName: string,
   email: string,
@@ -66,7 +70,7 @@ export const handleRegisterUser = async (
       profilePicture: imageData,
     };
 
-    const response = await registerUserAPI(registerData);
+    const response = await registerClientAPI(registerData);
     await cognitoAuthAPI(authData);
 
     // Si la API devuelve una respuesta, la retornamos
@@ -74,6 +78,24 @@ export const handleRegisterUser = async (
   } catch (error) {
     // Aquí puedes manejar los errores como prefieras
     console.error("An error occurred while registering the user", error);
+    throw error;
+  }
+};
+
+export const handleLoginClient = async (email: string, password: string) => {
+  try {
+    const loginData = {
+      email: email,
+      password: password,
+    };
+
+    const response = await loginClientAPI(loginData);
+
+    // Si la API devuelve una respuesta, la retornamos
+    return response;
+  } catch (error) {
+    // Aquí puedes manejar los errores como prefieras
+    console.error("An error occurred while login the user", error);
     throw error;
   }
 };

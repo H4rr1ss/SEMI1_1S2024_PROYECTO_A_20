@@ -5,22 +5,22 @@ interface Ticket {
   date: string;
   typeFlight: string;
   travellers: number;
-  idFlight: number;
   boardingTime: string;
   arrivalTime: string;
   flightPrice: number;
   check: boolean;
+  idFlight: number;
 }
 
 export interface Client {
-  name: string;
+  firstName: string;
   lastName: string;
   phoneNumber: number;
   nationality: string;
   email: string;
   passportNumber: number;
   password: string;
-  profile_pic: string;
+  profilePicture: string;
   tickets: Ticket[];
 }
 
@@ -40,49 +40,54 @@ export interface ClientAuth {
   email: string;
 }
 
+export interface ClientLogin {
+  email: string;
+  password: string;
+}
+
 export interface ClientProfile {
-  name: string;
+  firstName: string;
   lastName: string;
   emial: string;
   passportNumber: number;
   phoneNumber: number;
   nationality: string;
-  profile_pic: string;
+  profilePicture: string;
 }
 
 export interface DataEditProfile {
-  name: string;
+  firstName: string;
   lastName: string;
   email: string;
   passportNumber: number;
   phoneNumber: number;
   nationality: string;
-  profile_pic: string;
+  profilePicture: string;
 }
 
 export interface ClientStore {
-  name: string;
+  firstName: string;
   lastName: string;
   phoneNumber: number;
   nationality: string;
   email: string;
   passportNumber: number;
   password: string;
-  profile_pic: string;
+  profilePicture: string;
   tickets: Ticket[];
 
   // Setters
-  setStore_Name: (name: string) => void;
+  setStore_Name: (firstName: string) => void;
   setStore_Client: (client: Client) => void;
   clearStore_Client: () => void;
   setStore_InfoEditProfile: (
-    name: string,
+    firstName: string,
     lastName: string,
     email: string,
     passportNumber: number,
     phoneNumber: number,
     nationality: string,
-    profile_pic: string
+    profilePicture: string
   ) => void;
 
   // Getters
