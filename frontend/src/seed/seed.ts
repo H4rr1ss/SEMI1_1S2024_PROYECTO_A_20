@@ -1,4 +1,4 @@
-
+import { PropsDestinationDetail } from "@/utils";
 // DATA DE LOGUEO PARA CLIENTE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 export interface Ticket {
     id: string;
@@ -223,12 +223,25 @@ interface destinations {
     preventRecommendations: string;
 }
 
+export const props: PropsDestinationDetail = {
+    name: "Madrid",
+    country: "España",
+    image: "../../imas/destinations/madrid.webp",
+    description: "España, situada en la Península Ibérica, es un país diverso y culturalmente rico con una rica historia y una impresionante arquitectura. Con más de 47 millones de habitantes, es el segundo país más grande de la Unión Europea. Desde las soleadas playas hasta las montañas nevadas, España ofrece una variedad de paisajes. Ha dejado una huella duradera en el mundo a través de su legado histórico, desde la dominación romana hasta el imperio español en los siglos XVI y XVII.",
+    keywords: ["España", "Madrid", "Ciudad", "Capital"],
+    places: [
+        { name: "Plaza Mayor", description: "La Plaza Mayor es uno de los lugares más emblemáticos de Madrid, la capital de España. Situada en el corazón de la ciudad, esta plaza rectangular de estilo barroco fue construida en el siglo XVII durante el reinado de Felipe III. La Plaza Mayor ha sido testigo de una gran variedad de eventos a lo largo de su historia, desde corridas de toros y ejecuciones públicas hasta celebraciones reales y mercados." },
+        { name: "Prado Museum", description: "El Museo del Prado, ubicado en Madrid, es uno de los museos de arte más importantes del mundo y una joya cultural de España. Fundado en 1819, cuenta con una impresionante colección de obras maestras que abarcan desde el siglo XII hasta el siglo XIX, destacando especialmente la pintura española, italiana y flamenca." }
+    ],
+    preventRecommendations: "Al visitar el Museo del Prado en Madrid, asegúrate de comprar tus entradas con anticipación para evitar las largas colas. Llega temprano para evitar las multitudes y planifica tu visita para no perderte tus obras favoritas. Respeta las normas del museo, mantén el distanciamiento social y lleva mascarilla si es necesario. No olvides hidratarte y tomar descansos regulares. Con estas precauciones, disfrutarás de una visita segura y memorable al Museo del Prado."
+}
+
 export const destinations: destinations[] = [
     {
         name: "Madrid",
-        country: "Spain",
+        country: "España",
         image: "../../imas/destinations/madrid.webp",
-        description: "Madrid is the capital and largest city of Spain.",
+        description: "España, situada en la Península Ibérica, es un país diverso y culturalmente rico con una rica historia y una impresionante arquitectura. Con más de 47 millones de habitantes, es el segundo país más grande de la Unión Europea. Desde las soleadas playas hasta las montañas nevadas, España ofrece una variedad de paisajes. Ha dejado una huella duradera en el mundo a través de su legado histórico, desde la dominación romana hasta el imperio español en los siglos XVI y XVII.",
         keywords: ["Spain", "Madrid", "city", "capital"],
         places: [
             { name: "Plaza Mayor", description: "Historic square in the heart of Madrid." },
