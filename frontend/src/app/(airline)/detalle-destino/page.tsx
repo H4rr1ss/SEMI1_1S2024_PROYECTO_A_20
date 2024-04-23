@@ -2,7 +2,8 @@ import { PropsDestinationDetail, Place } from "@/utils";
 import { props } from "@/seed/seed";
 import './detalle.css'
 
-const DetalleDestino = (/*props : PropsDestinationDetail*/) => {
+const DetalleDestino = () => {
+
 	return (
 		<div className="detalle-destino flex-grow mt-14 w-full h-auto text-black">
 			<h3>{props.country}</h3>
@@ -59,23 +60,3 @@ const DetalleDestino = (/*props : PropsDestinationDetail*/) => {
 }
 
 export default DetalleDestino;
-
-/*
-<div
-  className="flex flex-col gap-1 justify-center items-start w-[280px] bg-white dark:bg-transparent px-4 py-4 shadow-xl rounded-lg"
->
-  <p className="font-semibold text-xl text-gray-600 mb-2">Tags</p>
-  <div className="flex flex-wrap gap-2">
-    <p
-      className="px-3 py-1 text-[12px] bg-[#d9dfe3] max-w-max rounded font-semibold text-[#7281a3]"
-    >
-      #uiverse
-    </p>
-    <p
-      className="px-3 py-1 text-[12px] bg-[#d9dfe3] max-w-max rounded font-semibold text-[#7281a3]"
-    >
-      #html
-    </p>
-  </div>
-</div>
-*/

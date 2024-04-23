@@ -9,9 +9,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import "./login.css";
 
-// Seed
-import { client } from "@/seed/seed";
-
 const Login = () => {
   const router = useRouter();
   const clientStore = useClientStore();

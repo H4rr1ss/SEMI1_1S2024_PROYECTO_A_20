@@ -108,7 +108,7 @@ interface Place {
 export const flights: Flight[] = [
     {
         id: 1,
-        destinationCountry: "Spain",
+        destinationCountry: "España",
         destination: "Madrid",
         originCountry: "France",
         origin: "Paris",
@@ -129,7 +129,7 @@ export const flights: Flight[] = [
     },
     {
         id: 2,
-        destinationCountry: "Germany",
+        destinationCountry: "Alemania",
         destination: "Berlin",
         originCountry: "Italy",
         origin: "Rome",
@@ -251,7 +251,7 @@ export const destinations: destinations[] = [
     },
     {
         name: "Berlin",
-        country: "Germany",
+        country: "Alemania",
         image: "../../imas/destinations/berlin.jpg",
         description: "Berlin is the capital and largest city of Germany.",
         keywords: ["Germany", "Berlin", "city", "capital"],
@@ -275,7 +275,7 @@ export const destinations: destinations[] = [
     },
     {
         name: "New York",
-        country: "United States",
+        country: "Estados Unidos",
         image: "../../imas/destinations/newYork.jpg",
         description: "New York City (NYC), often simply called New York, is the most populous city in the United States.",
         keywords: ["United States", "New York", "city", "populous"],
