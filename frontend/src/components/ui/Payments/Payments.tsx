@@ -1,28 +1,27 @@
-'use client'
-import './payments.css'
-import { Payments } from '@/utils/interfaces/reservationFlight.interface';
+"use client";
+import "./payments.css";
+import { Payments } from "@/utils/interfaces/reservationFlight.interface";
 
-const SelectFlight = ( props:Payments ) =>{
+const SelectFlight = (props: Payments) => {
   let totalPassengers = 0;
   let finalCost = 0;
 
   const handle = () => {
     finalCost = totalPassengers * props.flightPrice;
-    console.log("Pago")
-    console.log("Origen: ", props.origin)
-    console.log("Destino: ", props.destination)
-    console.log("Fecha: ", props.date)
-    console.log("Tipo de vuelo: ", props.typeFlight)
-    console.log("Pasajeros: ", props.travellers)
-    console.log("ID Vuelo: ", props.idFlight)
-    console.log("Hora de abordaje: ", props.boardingTime)
-    console.log("Hora de llegada: ", props.arrivalTime)
-    console.log("Precio final del vuelo: ", finalCost)
-  }
+    console.log("Pago");
+    console.log("Origen: ", props.origin);
+    console.log("Destino: ", props.destination);
+    console.log("Fecha: ", props.date);
+    console.log("Tipo de vuelo: ", props.typeFlight);
+    console.log("Pasajeros: ", props.travellers);
+    console.log("ID Vuelo: ", props.id);
+    console.log("Hora de abordaje: ", props.boardingTime);
+    console.log("Hora de llegada: ", props.arrivalTime);
+    console.log("Precio final del vuelo: ", finalCost);
+  };
 
   return (
     <div className="p-box w-full h-full flex flex-col items-center">
-
       <div className="resume w-4/5 h-48 mt-5 flex flex-col items-center justify-center">
         <h2>Resumen de compra</h2>
         {props.travellers.map((traveler, index) => {
@@ -40,14 +39,14 @@ const SelectFlight = ( props:Payments ) =>{
         <div className="line"></div>
         <div className="total mt-1 w-2/5 flex justify-between">
           <h3>Total</h3>
-          <label>{"Q. " + (totalPassengers * props.flightPrice)}</label>
+          <label>{"Q. " + totalPassengers * props.flightPrice}</label>
         </div>
       </div>
 
       <div className="card w-4/5 h-56 mt-4 flex flex-col items-center">
         <h2>Datos Tarjeta</h2>
         <div className="input-field relative mt-5">
-          <input type="text" required style={{ textTransform: 'uppercase' }} />
+          <input type="text" required style={{ textTransform: "uppercase" }} />
           <label>Nombre completo</label>
         </div>
 
@@ -58,8 +57,13 @@ const SelectFlight = ( props:Payments ) =>{
             maxLength={25}
             onInput={(e) => {
               const input = e.currentTarget;
-              const unformattedValue = input.value.replace(/\D/g, '').substring(0, 16); // Eliminamos caracteres no numéricos y limitamos a 16 dígitos
-              const formattedValue = unformattedValue.replace(/(\d{4})(?=\d)/g, '$1 - '); // Agregamos espacios después de cada grupo de 4 números
+              const unformattedValue = input.value
+                .replace(/\D/g, "")
+                .substring(0, 16); // Eliminamos caracteres no numéricos y limitamos a 16 dígitos
+              const formattedValue = unformattedValue.replace(
+                /(\d{4})(?=\d)/g,
+                "$1 - "
+              ); // Agregamos espacios después de cada grupo de 4 números
               input.value = formattedValue;
             }}
           />
@@ -71,19 +75,24 @@ const SelectFlight = ( props:Payments ) =>{
             <input
               type="text"
               required
-              placeholder='MM / AA'
+              placeholder="MM / AA"
               maxLength={7}
               onInput={(e) => {
                 const input = e.currentTarget;
-                const unformattedValue = input.value.replace(/\D/g, '').substring(0, 6); // Eliminamos caracteres no numéricos y limitamos a 6 dígitos
-                const formattedValue = unformattedValue.replace(/(\d{2})(?=\d)/g, '$1 / '); // Agregamos barras después de cada grupo de 2 números
+                const unformattedValue = input.value
+                  .replace(/\D/g, "")
+                  .substring(0, 6); // Eliminamos caracteres no numéricos y limitamos a 6 dígitos
+                const formattedValue = unformattedValue.replace(
+                  /(\d{2})(?=\d)/g,
+                  "$1 / "
+                ); // Agregamos barras después de cada grupo de 2 números
                 input.value = formattedValue;
               }}
             />
             <label>Fecha expiracion</label>
           </div>
           <div className="input-field2 relative mt-5">
-            <input type="password" required placeholder='CVV'/>
+            <input type="password" required placeholder="CVV" />
             <label>código</label>
           </div>
         </div>
@@ -96,7 +105,7 @@ const SelectFlight = ( props:Payments ) =>{
         Finalizar Reserva
       </button>
     </div>
-  )
-}
+  );
+};
 
 export default SelectFlight;

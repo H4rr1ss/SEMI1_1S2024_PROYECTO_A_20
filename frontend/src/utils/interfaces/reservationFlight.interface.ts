@@ -1,14 +1,15 @@
 interface PropsPayment {
   setIdFlight: (idFlight: number) => void;
   setPrice: (price: number) => void;
+  setIndexFlight: (indexFlight: number) => void;
 }
 
-export interface Traveler{
+export interface Traveler {
   typeTraveler: string;
   quantity: number;
 }
 
-export interface ReserveFlight{
+export interface ReserveFlight {
   origin: string;
   destination: string;
   date: string;
@@ -18,7 +19,8 @@ export interface ReserveFlight{
 }
 
 export interface FlightProps {
-  idFlight: string;
+  id: number;
+  index: number;
   boardingTime: string;
   arrivalTime: string;
   price: number;
@@ -26,14 +28,35 @@ export interface FlightProps {
   reserveFlight: ReserveFlight;
 }
 
-export interface Payments{
+export interface Payments {
   origin: string;
   destination: string;
   date: string;
   typeFlight: string;
   travellers: Traveler[];
-  idFlight: number,
-  boardingTime: string,
-  arrivalTime: string,
-  flightPrice: number,
+  id: number;
+  boardingTime: string;
+  arrivalTime: string;
+  flightPrice: number;
+}
+
+export interface GetFlights {
+  origin: string;
+  destination: string;
+  date: string;
+  typeFlight: string;
+}
+
+export interface Flights {
+  id: number;
+  destinationCountry: string;
+  destination: string;
+  originCountry: string;
+  origin: string;
+  boardingTime: string;
+  arrivalTime: string;
+  date: string;
+  price: string;
+  typeFlight: string;
+  preventiveRecommendations: string;
 }
