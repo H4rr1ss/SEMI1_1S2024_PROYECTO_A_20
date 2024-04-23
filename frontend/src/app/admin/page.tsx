@@ -32,38 +32,6 @@ export default function Admin() {
     useState("");
 
   const handleRegisterFlight = () => {
-    const flight = {
-      destinationCountry: destinationCountry,
-      destination: destination,
-      originCountry: originCountry,
-      origin: origin,
-      boardingTime: boardingTime,
-      arrivalTime: arrivalTime,
-      date: date,
-      price: price,
-      typeFlight: typeFlight,
-      destinationDetails: {
-        description: description,
-        places: [
-          {
-            name: place1,
-            description: description1,
-          },
-          {
-            name: place2,
-            description: description2,
-          },
-        ],
-        destinationImage: {
-          name: imageName,
-          base64: imageBase64,
-        },
-      },
-      preventiveRecommendations: preventionRecommendations,
-    };
-
-    console.log(flight);
-
     handleRecordFlight(
       destinationCountry,
       destination,
@@ -84,7 +52,6 @@ export default function Admin() {
       imageBase64
     )
       .then(async (response) => {
-        // Aquí puedes obtener el cuerpo de la respuesta como JSON
         const data = await response.json();
         console.log("Vuelo registrado con éxito", data);
       })

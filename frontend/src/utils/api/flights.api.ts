@@ -1,7 +1,6 @@
 import { RecordFlight } from "../interfaces/recordFlight.interface";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL + "/flights";
-const COGNITO_API_URL = process.env.NEXT_PUBLIC_COGNITO_API_URL;
 
 export const recordFlightAPI = async (data: RecordFlight) =>
   fetch(`${API_URL}/record-flight`, {
@@ -10,4 +9,9 @@ export const recordFlightAPI = async (data: RecordFlight) =>
     headers: {
       "Content-Type": "application/json",
     },
+  });
+
+export const getDestinationsAPI = async () =>
+  fetch(`${API_URL}/get-destinations`, {
+    method: "GET",
   });

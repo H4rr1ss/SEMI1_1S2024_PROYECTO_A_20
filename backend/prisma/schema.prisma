@@ -42,10 +42,11 @@ model Flight {
 }
 
 model Destination {
-  id          Int     @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   image       String?
   description String
   places      Place[]
+  keyWords    KeyWord[]
 
   flightId Int
   flight   Flight @relation(fields: [flightId], references: [id])
@@ -55,6 +56,14 @@ model Place {
   id          Int    @id @default(autoincrement())
   name        String
   description String
+
+  destinationId Int
+  destination   Destination @relation(fields: [destinationId], references: [id])
+}
+
+model KeyWord {
+  id      Int    @id @default(autoincrement())
+  keyword String
 
   destinationId Int
   destination   Destination @relation(fields: [destinationId], references: [id])

@@ -48,6 +48,19 @@ export class FlightsService {
     // Subir la imagen a S3
     const urlPhoto = await this.s3.uploadImage(key, destinationImage.base64);
 
+    // Obtener las etiquetas de la imagen
+    const labels = await this.getLabels(urlPhoto);
+
+    // Guardar las etiquetas en la base de datos
+    for (const label of labels) {
+      await this.prisma.keyWord.create({
+        data: {
+          keyword: label,
+          destinationId: newDestination.id,
+        },
+      });
+    }
+
     // Actualizar el destino con la URL de la imagen
     await this.prisma.destination.update({
       where: { id: newDestination.id },
@@ -69,6 +82,21 @@ export class FlightsService {
     return newFlight;
   }
 
+  getLabels = async (image: string) => {
+    // Get the image from S3
+    const key = image.split('.com/')[1];
+    const base64Image = await this.s3.getImage(key);
+
+    // Analyze the image with Rekognition
+    const labels = await this.rekognition.analyzeImage(base64Image);
+
+    // Translate the labels
+    const translatedLabels = await this.translate.translateLabels(labels);
+    console.log(translatedLabels);
+
+    return translatedLabels;
+  };
+
   async getAllDestinations() {
     const allFlights = await this.prisma.flight.findMany({
       include: {
@@ -84,8 +112,13 @@ export class FlightsService {
       allFlights.map(async (flight) => {
         const destinationDetail = flight.destinationDetails[0];
 
-        // Obtenemos las etiquetas de la imagen
-        const labels = await this.getLabels(destinationDetail.image);
+        const keywords = await this.prisma.keyWord.findMany({
+          where: {
+            destinationId: destinationDetail.id,
+          },
+        });
+
+        const labels = keywords.map((keyword) => keyword.keyword);
 
         return {
           name: flight.destination,
@@ -101,21 +134,6 @@ export class FlightsService {
 
     return destinationsArray;
   }
-
-  getLabels = async (image: string) => {
-    // Get the image from S3
-    const key = image.split('.com/')[1];
-    const base64Image = await this.s3.getImage(key);
-
-    // Analyze the image with Rekognition
-    const labels = await this.rekognition.analyzeImage(base64Image);
-
-    // Translate the labels
-    const translatedLabels = await this.translate.translateLabels(labels);
-    console.log(translatedLabels);
-
-    return translatedLabels;
-  };
 
   async getFlights(data: GetFlightsDto) {
     const flights = await this.prisma.flight.findMany({
