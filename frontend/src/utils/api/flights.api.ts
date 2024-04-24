@@ -6,6 +6,7 @@ import {
 } from "../interfaces/reservationFlight.interface";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL + "/flights";
+const SES_API_URL = process.env.NEXT_PUBLIC_SES_API_URL;
 
 export const recordFlightAPI = async (data: RecordFlight) =>
   fetch(`${API_URL}/record-flight`, {
@@ -42,6 +43,15 @@ export const bookFlightAPI = async (data: BookFlight) =>
 export const checkInAPI = async (data: CheckIn) =>
   fetch(`${API_URL}/check-in`, {
     method: "PATCH",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+export const sesMessageAPI = async (data: { email: string }) =>
+  fetch(`${SES_API_URL}`, {
+    method: "POST",
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json",

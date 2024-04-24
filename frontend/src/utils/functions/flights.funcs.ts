@@ -3,6 +3,7 @@ import {
   getDestinationsAPI,
   getFlightsAPI,
   checkInAPI,
+  sesMessageAPI,
   getTicketsAPI,
 } from "../api/flights.api";
 
@@ -80,15 +81,19 @@ export const handleBookFlight = async (
   }
 };
 
-export const handleCheckIn = async (id: number, lastName: string) => {
+export const handleCheckIn = async (
+  id: number,
+  lastName: string,
+  email: string
+) => {
   try {
     const checkInData = {
       id,
       lastName,
     };
-
     const response = await checkInAPI(checkInData);
-    // Si la API devuelve una respuesta, la retornamos
+    await sesMessageAPI({ email });
+
     return response;
   } catch (error) {
     // Aquí puedes manejar los errores como prefieras
