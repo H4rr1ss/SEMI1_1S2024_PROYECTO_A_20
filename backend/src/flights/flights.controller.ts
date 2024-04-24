@@ -1,12 +1,13 @@
 import { Controller } from '@nestjs/common';
-import { Body, Post, Get } from '@nestjs/common';
+import { Body, Param, Post, Get, Patch } from '@nestjs/common';
 import {
   ConflictException,
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
 import { FlightsService } from './flights.service';
-import { RecordFlightDto, GetFlightsDto } from './dto/flights.dto';
+import { RecordFlightDto, GetFlightsDto, CheckInDto } from './dto/flights.dto';
+import { Ticket } from '@prisma/client';
 
 @Controller('flights')
 export class FlightsController {
@@ -31,5 +32,26 @@ export class FlightsController {
     data: GetFlightsDto,
   ) {
     return await this.flightsService.getFlights(data);
+  }
+
+  @Post('/book-flight')
+  async bookFlight(
+    @Body()
+    data: Ticket,
+  ) {
+    return await this.flightsService.bookFlight(data);
+  }
+
+  @Patch('/check-in')
+  async checkIn(
+    @Body()
+    data: CheckInDto,
+  ) {
+    return await this.flightsService.checkIn(data);
+  }
+
+  @Get('/get-tickets/:id')
+  async getTickets(@Param('id') id: number) {
+    return await this.flightsService.getTicketsByClient(Number(id));
   }
 }

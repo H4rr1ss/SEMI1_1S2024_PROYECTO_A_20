@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { Ticket } from '@prisma/client';
 import { S3Service } from '../s3/s3.service';
 import { RekognitionService } from 'src/rekognition/rekognition.service';
 import { TranslateService } from 'src/translate/translate.service';
-import { RecordFlightDto, GetFlightsDto } from './dto/flights.dto';
+import { RecordFlightDto, GetFlightsDto, CheckInDto } from './dto/flights.dto';
 
 @Injectable()
 export class FlightsService {
@@ -145,5 +146,36 @@ export class FlightsService {
       },
     });
     return flights;
+  }
+
+  async bookFlight(data: Ticket) {
+    const ticket = await this.prisma.ticket.create({
+      data,
+    });
+
+    return ticket;
+  }
+
+  async checkIn(data: CheckInDto) {
+    const ticket = await this.prisma.ticket.update({
+      where: {
+        id: data.id,
+      },
+      data: {
+        check: true,
+      },
+    });
+
+    return ticket;
+  }
+
+  async getTicketsByClient(clientId: number) {
+    const tickets = await this.prisma.ticket.findMany({
+      where: {
+        clientId,
+      },
+    });
+
+    return tickets;
   }
 }

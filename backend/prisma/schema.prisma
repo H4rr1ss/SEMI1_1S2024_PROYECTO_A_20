@@ -80,8 +80,8 @@ model Ticket {
   arrivalTime  String
   price        Decimal @db.Decimal(10, 2)
   check        Boolean
-  idFlight     Int
 
+  flightId Int
   clientId Int
   client   Client @relation(fields: [clientId], references: [id])
 }

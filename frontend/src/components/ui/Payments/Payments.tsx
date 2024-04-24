@@ -1,8 +1,12 @@
 "use client";
 import "./payments.css";
 import { Payments } from "@/utils/interfaces/reservationFlight.interface";
+import { useClientStore } from "@/store/store";
+import { handleBookFlight } from "@/utils/functions/flights.funcs";
 
 const SelectFlight = (props: Payments) => {
+  const clientStore = useClientStore();
+
   let totalPassengers = 0;
   let finalCost = 0;
 
@@ -14,10 +18,32 @@ const SelectFlight = (props: Payments) => {
     console.log("Fecha: ", props.date);
     console.log("Tipo de vuelo: ", props.typeFlight);
     console.log("Pasajeros: ", props.travellers);
-    console.log("ID Vuelo: ", props.id);
     console.log("Hora de abordaje: ", props.boardingTime);
     console.log("Hora de llegada: ", props.arrivalTime);
     console.log("Precio final del vuelo: ", finalCost);
+    console.log("ID Vuelo: ", props.id);
+    console.log("ID Cliente: ", clientStore.id);
+
+    handleBookFlight(
+      props.origin,
+      props.destination,
+      props.date,
+      props.typeFlight,
+      0,
+      props.boardingTime,
+      props.arrivalTime,
+      finalCost,
+      false,
+      props.id,
+      clientStore.id
+    )
+      .then(async (response) => {
+        const data = await response.json();
+        console.log("Vuelos reservados con éxito", data);
+      })
+      .catch((error) => {
+        console.error("Ocurrió un error al reservar el vuelo", error);
+      });
   };
 
   return (

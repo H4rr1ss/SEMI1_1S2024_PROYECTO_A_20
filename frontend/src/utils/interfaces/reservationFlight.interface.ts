@@ -28,16 +28,23 @@ export interface FlightProps {
   reserveFlight: ReserveFlight;
 }
 
-export interface Payments {
+export interface BookFlight {
   origin: string;
   destination: string;
   date: string;
   typeFlight: string;
-  travellers: Traveler[];
-  id: number;
+  travellers: number;
   boardingTime: string;
   arrivalTime: string;
-  flightPrice: number;
+  price: number;
+  check: boolean;
+  flightId: number;
+  clientId: number;
+}
+
+export interface CheckIn {
+  id: number;
+  lastName: string;
 }
 
 export interface GetFlights {

@@ -18,3 +18,8 @@ export class GetFlightsDto {
   date: string;
   typeFlight: string;
 }
+
+export class CheckInDto {
+  id: number;
+  lastName: string;
+}

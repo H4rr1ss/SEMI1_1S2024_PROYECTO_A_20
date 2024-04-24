@@ -66,6 +66,7 @@ export interface DataEditProfile {
 }
 
 export interface ClientStore {
+  id: number;
   firstName: string;
   lastName: string;
   phoneNumber: number;
@@ -92,5 +93,6 @@ export interface ClientStore {
 
   // Getters
   getStore_Name: () => string;
+  getStore_Id: () => number;
   getStore_getInfoProfile: () => DataEditProfile;
 }

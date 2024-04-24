@@ -8,6 +8,14 @@ import { TranslateModule } from './translate/translate.module';
 import { ProfileModule } from './profile/profile.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), AuthModule, S3Module, FlightsModule, RekognitionModule, TranslateModule, ProfileModule],
+  imports: [
+    ConfigModule.forRoot(),
+    AuthModule,
+    S3Module,
+    FlightsModule,
+    RekognitionModule,
+    TranslateModule,
+    ProfileModule,
+  ],
 })
 export class AppModule {}

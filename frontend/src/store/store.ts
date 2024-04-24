@@ -5,6 +5,7 @@ import {
 import { create } from "zustand";
 
 export const useClientStore = create<ClientStore>((set, get) => ({
+  id: 0,
   firstName: "",
   lastName: "",
   phoneNumber: 0,
@@ -26,6 +27,7 @@ export const useClientStore = create<ClientStore>((set, get) => ({
 
   clearStore_Client: () => {
     set({
+      id: 0,
       firstName: "",
       lastName: "",
       email: "",
@@ -64,8 +66,14 @@ export const useClientStore = create<ClientStore>((set, get) => ({
     return firstName;
   },
 
+  getStore_Id: () => {
+    const { id } = get();
+    return id;
+  },
+
   getStore_getInfoProfile: () => {
     const {
+      id,
       firstName,
       lastName,
       email,
@@ -75,6 +83,7 @@ export const useClientStore = create<ClientStore>((set, get) => ({
       profilePicture,
     } = get();
     return {
+      id,
       firstName,
       lastName,
       email,
