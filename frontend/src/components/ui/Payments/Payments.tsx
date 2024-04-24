@@ -3,6 +3,7 @@ import "./payments.css";
 import { handleBookFlight } from "@/utils/functions/flights.funcs";
 import { toast, ToastContainer } from 'react-toastify';
 import { useClientStore } from "@/store/store";
+import { Traveler } from "@/utils";
 
 const SelectFlight = (props:any) => {
   const clientStore = useClientStore();
@@ -54,7 +55,7 @@ const SelectFlight = (props:any) => {
       />
       <div className="resume w-4/5 h-48 mt-5 flex flex-col items-center justify-center">
         <h2>Resumen de compra</h2>
-        {props.travellers.map((traveler, index:number) => {
+        {props.travellers.map((traveler:Traveler, index:number) => {
           if (traveler.quantity > 0) {
             totalPassengers += traveler.quantity;
             return (

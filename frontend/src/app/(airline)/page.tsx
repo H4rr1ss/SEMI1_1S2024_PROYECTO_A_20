@@ -65,9 +65,11 @@ export default function Home() {
               </svg>
             </div>
             <h4>DOCUMENTOS IMPORTANTES</h4>
-            <button className="px-9 py-2 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition">
-              Ver más
-            </button>
+            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank" rel="noopener noreferrer">
+              <button className="px-9 py-2 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition">
+                Ver más
+              </button>
+            </a>
           </div>
           <div className="destinations flex flex-col items-center justify-center h-80 w-1/4 ">
             <div className="circle flex items-center justify-center">
@@ -122,9 +124,11 @@ export default function Home() {
               </svg>
             </div>
             <h4>DERECHOS Y DEBERES DEL PASAJERO</h4>
-            <button className="px-9 py-2 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition">
-              Ver más
-            </button>
+            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank" rel="noopener noreferrer">
+              <button className="px-9 py-2 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition">
+                Ver más
+              </button>
+            </a>
           </div>
         </div>
 
