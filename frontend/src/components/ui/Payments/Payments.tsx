@@ -1,10 +1,10 @@
 "use client";
 import "./payments.css";
-import { Payments } from "@/utils/interfaces/reservationFlight.interface";
-import { useClientStore } from "@/store/store";
 import { handleBookFlight } from "@/utils/functions/flights.funcs";
+import { toast, ToastContainer } from 'react-toastify';
+import { useClientStore } from "@/store/store";
 
-const SelectFlight = (props: Payments) => {
+const SelectFlight = (props:any) => {
   const clientStore = useClientStore();
 
   let totalPassengers = 0;
@@ -39,18 +39,22 @@ const SelectFlight = (props: Payments) => {
     )
       .then(async (response) => {
         const data = await response.json();
-        console.log("Vuelos reservados con éxito", data);
+        toast.success("Vuelos reservados con éxito");
       })
-      .catch((error) => {
-        console.error("Ocurrió un error al reservar el vuelo", error);
+      .catch(() => {
+        toast.error("Ocurrió un error al reservar el vuelo");
       });
   };
 
   return (
     <div className="p-box w-full h-full flex flex-col items-center">
+      <ToastContainer
+        position="top-center"
+        autoClose={1800}
+      />
       <div className="resume w-4/5 h-48 mt-5 flex flex-col items-center justify-center">
         <h2>Resumen de compra</h2>
-        {props.travellers.map((traveler, index) => {
+        {props.travellers.map((traveler, index:number) => {
           if (traveler.quantity > 0) {
             totalPassengers += traveler.quantity;
             return (
@@ -89,7 +93,7 @@ const SelectFlight = (props: Payments) => {
               const formattedValue = unformattedValue.replace(
                 /(\d{4})(?=\d)/g,
                 "$1 - "
-              ); // Agregamos espacios después de cada grupo de 4 números
+              );
               input.value = formattedValue;
             }}
           />
@@ -111,7 +115,7 @@ const SelectFlight = (props: Payments) => {
                 const formattedValue = unformattedValue.replace(
                   /(\d{2})(?=\d)/g,
                   "$1 / "
-                ); // Agregamos barras después de cada grupo de 2 números
+                );
                 input.value = formattedValue;
               }}
             />

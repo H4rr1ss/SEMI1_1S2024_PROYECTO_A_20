@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import { ReserveFlight } from "@/utils/interfaces/reservationFlight.interface";
+import { Flights } from "@/utils/interfaces/reservationFlight.interface";
+import { handleGetFlights } from "@/utils/functions/flights.funcs";
 import Payments from "@/components/ui/Payments/Payments";
-import { flights } from "@/seed/seed";
+import { toast, ToastContainer } from 'react-toastify';
 import Flight from "../flight/Flight";
 import "./select-flight.css";
-import { handleGetFlights } from "@/utils/functions/flights.funcs";
-import { Flights } from "@/utils/interfaces/reservationFlight.interface";
 
 const SelectFlight = (props: ReserveFlight) => {
   const [data, setData] = useState([] as Flights[]);
@@ -22,14 +22,14 @@ const SelectFlight = (props: ReserveFlight) => {
     )
       .then(async (response) => {
         const data = await response.json();
-        console.log("Vuelos obtenidos con éxito", data);
+        toast.success("Vuelos obtenidos con éxito");
 
         setData(data);
       })
-      .catch((error) => {
-        console.error("Ocurrió un error al obtener los Vuelos", error);
+      .catch(() => {
+        toast.error("Ocurrió un error al obtener los Vuelos");
       });
-  }, []);
+  }, [props.origin, props.destination, props.date, props.typeFlight]);
 
   const [isActive, setIsActive] = useState(false);
 
@@ -37,10 +37,6 @@ const SelectFlight = (props: ReserveFlight) => {
   const [idFlight_, setIdFlight_] = useState<number>(0);
   const [finalPrice_, setFinalPrice_] = useState<number>(0);
   const [indexFlight_, setIndexFlight_] = useState<number>(0);
-
-  useEffect(() => {
-    console.log("Vuelo seleccionado: ", idFlight_);
-  }, [idFlight_]);
 
   const reservationProcess = () => {
     props.setActiveIndex(2);
@@ -63,6 +59,10 @@ const SelectFlight = (props: ReserveFlight) => {
         />
       ) : (
         <div className="h-full flex flex-col items-center">
+          <ToastContainer
+            position="top-center"
+            autoClose={1800}
+          />
           <div className="sf-content grid gap-y-4">
             {data.map((flight, index) => (
               <Flight

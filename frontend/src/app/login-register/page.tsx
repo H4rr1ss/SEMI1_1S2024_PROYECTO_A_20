@@ -4,6 +4,7 @@ import {
   handleRegisterClient,
   handleLoginClient,
 } from "@/utils/functions/login-register.funcs";
+import { toast, ToastContainer } from 'react-toastify';
 import { useClientStore } from "@/store/store";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -45,10 +46,10 @@ const Login = () => {
       .then(async (response) => {
         // Aquí puedes obtener el cuerpo de la respuesta como JSON
         const data = await response.json();
-        console.log("Usuario registrado con éxito", data);
+        toast.success("Usuario registrado con éxito");
       })
-      .catch((error) => {
-        console.error("Ocurrió un error al registrar el usuario", error);
+      .catch(() => {
+        toast.error("Ocurrió un error al registrar el usuario");
       });
 
     setName("");
@@ -70,7 +71,7 @@ const Login = () => {
     handleLoginClient(l_email, l_password)
       .then(async (response) => {
         const data = await response.json();
-        console.log("Usuario logeado con éxito", data);
+        toast.success("Usuario logeado con éxito");
 
         // Setear el objeto en el estado global
         clientStore.setStore_Client(data);
@@ -79,8 +80,8 @@ const Login = () => {
         // Redireccionar a la página de perfil
         router.push("/");
       })
-      .catch((error) => {
-        console.error("Ocurrió un error al logear el usuario", error);
+      .catch(() => {
+        toast.error("Ocurrió un error al logear el usuario");
       });
 
     // Clear inputs
@@ -90,6 +91,10 @@ const Login = () => {
 
   return (
     <div className="flex flex-col h-screen items-center justify-center text-black">
+      <ToastContainer
+        position="top-center"
+        autoClose={1800}
+      />
       <div
         className={`container max-w-full relative overflow-hidden ${
           isActive ? "active" : ""
@@ -223,6 +228,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

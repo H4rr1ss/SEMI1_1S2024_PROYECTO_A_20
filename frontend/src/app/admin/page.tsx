@@ -4,6 +4,7 @@ import {
   handleRecordFlight,
 } from "@/utils/functions/admin.funcs";
 import InputAdmin from "@/components/ui/input-admin/Input-admin";
+import { toast, ToastContainer } from 'react-toastify';
 import { useState } from "react";
 import Link from "next/link";
 import "./admin.css";
@@ -28,8 +29,7 @@ export default function Admin() {
   const [description1, setDescription1] = useState("");
   const [place2, setPlace2] = useState("");
   const [description2, setDescription2] = useState("");
-  const [preventionRecommendations, setPreventionRecommendations] =
-    useState("");
+  const [preventionRecommendations, setPreventionRecommendations] = useState("");
 
   const handleRegisterFlight = () => {
     handleRecordFlight(
@@ -53,15 +53,19 @@ export default function Admin() {
     )
       .then(async (response) => {
         const data = await response.json();
-        console.log("Vuelo registrado con éxito", data);
+        toast.success("Vuelo registrado con éxito");
       })
-      .catch((error) => {
-        console.error("Ocurrió un error al registrar el vuelo", error);
+      .catch(() => {
+        toast.error("Ocurrió un error al registrar el vuelo");
       });
   };
 
   return (
     <div className="flex flex-col items-center">
+      <ToastContainer
+        position="top-center"
+        autoClose={1800}
+      />
       <h1 className="header-register-flight">REGISTRO DE VUELO</h1>
       <div className="container-details-flight flex flex-col items-center rounded-2xl">
         <div className="w-full rounded-3xl">

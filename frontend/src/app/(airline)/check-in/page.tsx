@@ -1,7 +1,8 @@
 "use client";
-import "./check-in.css";
-import { useState } from "react";
 import { handleCheckIn } from "@/utils/functions/flights.funcs";
+import { toast, ToastContainer } from 'react-toastify';
+import { useState } from "react";
+import "./check-in.css";
 
 export default function Check_in() {
   const [codeReservation, setCodeReservation] = useState("");
@@ -11,9 +12,9 @@ export default function Check_in() {
     let codeReservationNum = Number(codeReservation);
     handleCheckIn(codeReservationNum, lastName).then((response) => {
       if (response.ok) {
-        alert("Check-In realizado con éxito");
+        toast.success("Check-In realizado con éxito");
       } else {
-        alert("Error al realizar el Check-In");
+        toast.error("Error al realizar el Check-In");
       }
     });
 
@@ -23,6 +24,10 @@ export default function Check_in() {
 
   return (
     <div className="check-page mt-14 flex flex-col items-center relative flex-grow">
+      <ToastContainer
+        position="top-center"
+        autoClose={1800}
+      />
       <div className="header bg-red-400 w-full h-72"></div>
 
       <div className="box-ckeckIn rounded-3xl absolute">

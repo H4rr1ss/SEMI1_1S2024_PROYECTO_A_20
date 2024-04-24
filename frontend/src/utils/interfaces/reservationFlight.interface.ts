@@ -4,6 +4,7 @@ interface PropsPayment {
   setIndexFlight: (indexFlight: number) => void;
 }
 
+
 export interface Traveler {
   typeTraveler: string;
   quantity: number;
