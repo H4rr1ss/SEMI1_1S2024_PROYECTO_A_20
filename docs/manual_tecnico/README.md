@@ -20,24 +20,24 @@ Este proyecto se enfoca en el desarrollo de un sistema completo y robusto de ges
 
 Como primer lanzamiento, basandonos en los precios por utilización de los servicios, el proyecto como tal esta manejando un minimo de 100 usuarios activos al mes, por lo cuál:
 
-| Servicio        | Detalle                              | Precio   |
-| --------------- | ------------------------------------ | -------- |
-| AWS Cognito     | Autenticación de usuarios            | $50 USD  |
-| AWS Lambda      | Ejecución de funciones               | $20 USD  |
-| AWS API Gateway | Gestión de API                       | $30 USD  |
-| AWS Lex         | Procesamiento de lenguaje natural    | $50 USD  |
-| AWS Rekognition | Análisis de imágenes                 | $30 USD  |
-| AWS Polly       | Síntesis de voz                      | $20 USD  |
-| AWS EC2         | Instancias de servidor               | $100 USD |
-| AWS S3          | Almacenamiento de objetos            | $40 USD  |
-| AWS RDS         | Servicio de base de datos relacional | $80 USD  |
-| AWS SNS         | Servicio de notificaciones           | $10 USD  |
+| Servicio        | Detalle                                 | Precio   |
+| --------------- | --------------------------------------- | -------- |
+| AWS Cognito     | Autenticación de usuarios               | $50 USD  |
+| AWS Lambda      | Ejecución de funciones                  | $20 USD  |
+| AWS API Gateway | Gestión de API                          | $30 USD  |
+| AWS Lex         | Procesamiento de lenguaje natural       | $50 USD  |
+| AWS Rekognition | Análisis de imágenes                    | $30 USD  |
+| AWS Translate   | Traducción de texto                     | $40 USD  |
+| AWS EC2         | Instancias de servidor                  | $100 USD |
+| AWS S3          | Almacenamiento de objetos               | $40 USD  |
+| AWS RDS         | Servicio de base de datos relacional    | $80 USD  |
+| AWS SES         | Servicio de envío de correo electrónico | $10 USD  |
 
 Por lo tanto, el presupuesto mensual para Kehuel Airlines proyectado para 100 usuarios activos al mes es:
 
 | Detalle                               | Total        |
 | ------------------------------------- | ------------ |
-| **Por usuarios activos mensualmente** | **$430 USD** |
+| **Por usuarios activos mensualmente** | **$450 USD** |
 
 > [!NOTE]
 > El precio estimado varía dependiendo la cantidad de usuarios y el alcance que el proyecto tendra. Todos los precios por utilizacion de cada servicio, han sido extraidos de la pagina oficil de Amazon Web Services. [AWS](https://aws.amazon.com/es/pricing/?nc2=h_ql_pr_ln&aws-products-pricing.sort-by=item.additionalFields.productNameLowercase&aws-products-pricing.sort-order=asc&awsf.Free%20Tier%20Type=*all&awsf.tech-category=*all)
@@ -54,12 +54,12 @@ Por lo tanto, el presupuesto mensual para Kehuel Airlines proyectado para 100 us
 
 - **AWS Rekognition:** Es un servicio de análisis de imágenes y vídeos basado en inteligencia artificial que puede identificar objetos, personas, texto, escenas y actividades en imágenes y vídeos. Se utiliza para análisis de contenido multimedia, reconocimiento facial, análisis de contenido inapropiado, entre otros.
 
-- **AWS Polly:** Es un servicio que convierte texto en voz realista utilizando tecnología de síntesis de habla avanzada. Permite crear aplicaciones que pueden hablar con voces naturales en varios idiomas y géneros.
+- **AWS SES:** Amazon Simple Email Service (SES) es un servicio de correo electrónico escalable y rentable para enviar y recibir mensajes de correo electrónico. Proporciona una infraestructura robusta para el envío seguro de correos electrónicos, incluida la autenticación de remitentes, la gestión de listas de correo y la monitorización de la actividad de envío.
+
+- **AWS Translate:** Amazon Translate es un servicio de traducción automática neural que permite traducir texto de forma rápida y precisa entre idiomas. Utiliza modelos de aprendizaje automático avanzados para mejorar la calidad de las traducciones y admitir una amplia variedad de idiomas y pares de idiomas.
 
 - **AWS EC2:** Es un servicio de computación en la nube que proporciona capacidad informática escalable en la nube. Permite ejecutar aplicaciones en servidores virtuales, conocidos como instancias EC2, y escalar la capacidad de computación según sea necesario.
 
 - **AWS S3:** Es un servicio de almacenamiento en la nube altamente escalable y duradero. Permite almacenar y recuperar datos de forma segura desde cualquier lugar y en cualquier momento a través de internet.
 
 - **AWS RDS:** Es un servicio de base de datos relacional gestionado que facilita la configuración, operación y escalado de bases de datos relacionales en la nube. Admite varios motores de bases de datos, como MySQL, PostgreSQL, Oracle y SQL Server.
-
-- **AWS SNS:** Es un servicio de mensajería completamente administrado que permite enviar mensajes desde aplicaciones distribuidas a través de varios canales, como SMS, correo electrónico, HTTP/S y más. Se utiliza para la entrega de notificaciones, alertas y mensajes a los usuarios finales.
