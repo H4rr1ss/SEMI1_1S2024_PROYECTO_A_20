@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import TicketUI from "@/components/ui/ticket/Ticket";
-import { Ticket } from "@/seed/seed";
+import { Ticket } from "@/utils/interfaces/tickets.interface";
 import { useClientStore } from "@/store/store";
 import "./tickets.css";
 import { handleGetTickets } from "@/utils/functions/flights.funcs";

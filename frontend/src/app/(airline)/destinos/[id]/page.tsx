@@ -2,7 +2,7 @@
 
 import "./detalle.css";
 import { useState, useEffect } from "react";
-import { destinations } from "@/seed/seed";
+//import { destinations } from "@/seed/seed";
 import { handleGetDestinations } from "@/utils/functions/flights.funcs";
 import {
   GetDestination,

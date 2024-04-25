@@ -1,4 +1,6 @@
 // DATA DE LOGUEO PARA CLIENTE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/*
 export interface Ticket {
   id: string;
   origin: string;
@@ -351,3 +353,5 @@ export const destinations: destinations[] = [
       "Plan ahead for popular attractions and consider booking tickets in advance.",
   },
 ];
+
+*/

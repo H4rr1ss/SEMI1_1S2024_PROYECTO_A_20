@@ -6,6 +6,7 @@ import { FlightsModule } from './flights/flights.module';
 import { RekognitionModule } from './rekognition/rekognition.module';
 import { TranslateModule } from './translate/translate.module';
 import { ProfileModule } from './profile/profile.module';
+import { CheckModule } from './check/check.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ProfileModule } from './profile/profile.module';
     RekognitionModule,
     TranslateModule,
     ProfileModule,
+    CheckModule,
   ],
 })
 export class AppModule {}
