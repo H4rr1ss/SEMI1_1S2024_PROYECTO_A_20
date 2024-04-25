@@ -22,19 +22,19 @@ const TopMenu = () => {
           <div className="flex justify-start items-center h-14 p-5">
             <Link
               className="item h-14 w-48 flex items-center justify-center"
-              href={"/reserve-su-vuelo"}
+              href="/reserve-su-vuelo"
             >
               Reserva tu vuelo
             </Link>
             <Link
               className="item h-14 w-24 flex items-center justify-center"
-              href={"/tus-tickets"}
+              href="/tus-tickets"
             >
               Tickets
             </Link>
             <Link
               className="item h-14 w-28 flex items-center justify-center"
-              href={"/check-in"}
+              href="/check-in"
             >
               Check-In
             </Link>
@@ -44,7 +44,7 @@ const TopMenu = () => {
           {clientStore.getStore_Name() === "" ? (
             <Link
               className="item h-14 w-52 flex items-center justify-center gap-1"
-              href={"/login-register"}
+              href="/login-register"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ const TopMenu = () => {
             <div className="flex items-center justify-center w-full gap-5">
               <Link
                 className="item h-14 w-auto flex items-center justify-center gap-1"
-                href={"/ver-editar-perfil"}
+                href="/ver-editar-perfil"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@ const TopMenu = () => {
               </Link>
               <Link
                 className="item flex justify-center items-center h-14 w-32 gap-3"
-                href={"/"}
+                href="/"
                 onClick={() => {
                   clientStore.clearStore_Client();
                 }}

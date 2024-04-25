@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import img from "next/image";
 import Link from "next/link";
 import "./initialP.css";
 
@@ -10,26 +10,26 @@ export default function Home() {
       <div className="slider-box bg-blue-600">
         <ul>
           <li>
-            <Image src="/imas/1.jpg" alt="slice1" layout="fill" />
+            <img src="/imas/1.jpg" alt="slice1" />
 
             <div className="text">
               <h2>Tu viaje comienza aquí</h2>
             </div>
           </li>
           <li>
-            <Image src="/imas/2.webp" alt="slice2" layout="fill" />
+            <img src="/imas/2.webp" alt="slice2"  />
             <div className="text">
               <h2>Los mejores vuelos con Kehuel Airlines</h2>
             </div>
           </li>
           <li>
-            <Image src="/imas/3.jpg" alt="slice3" layout="fill" />
+            <img src="/imas/3.jpg" alt="slice3" />
             <div className="text">
               <h2>Prepárete para volar alto</h2>
             </div>
           </li>
           <li>
-            <Image src="/imas/4.jpg" alt="slice4" layout="fill" />
+            <img src="/imas/4.jpg" alt="slice4" />
             <div className="text">
               <h2>Explora el encanto y la belleza de la costa Oeste.</h2>
             </div>
@@ -93,7 +93,7 @@ export default function Home() {
             <h4>DESTINOS</h4>
             <Link
               className="p-Link px-9 py-2 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
-              href={"./destinos"}
+              href="/destinos"
             >
               Ver más
             </Link>

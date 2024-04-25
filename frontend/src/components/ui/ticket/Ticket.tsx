@@ -1,7 +1,7 @@
 import { TicketProps } from '@/utils/interfaces/tickets.interface';
 import './ticket.css'
 
-const TicketUI = (props: TicketProps) => {
+export function TicketUI (props: TicketProps) {
   return (
     <div className="ticket bg-gray-100 w-11/12 h-56">
       <div className="header flex justify-between items-center w-full h-8">
@@ -74,5 +74,3 @@ const TicketUI = (props: TicketProps) => {
     </div>
   )
 };
-
-export default TicketUI;

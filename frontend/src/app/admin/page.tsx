@@ -4,7 +4,6 @@ import {
   handleRecordFlight,
 } from "@/utils/functions/admin.funcs";
 import InputAdmin from "@/components/ui/input-admin/Input-admin";
-import { toast, ToastContainer } from 'react-toastify';
 import { useState } from "react";
 import Link from "next/link";
 import "./admin.css";
@@ -53,19 +52,16 @@ export default function Admin() {
     )
       .then(async (response) => {
         const data = await response.json();
-        toast.success("Vuelo registrado con éxito");
+        console.log("Vuelo registrado con éxito");
       })
       .catch(() => {
-        toast.error("Ocurrió un error al registrar el vuelo");
+        console.log("Ocurrió un error al registrar el vuelo");
       });
   };
 
   return (
     <div className="flex flex-col items-center">
-      <ToastContainer
-        position="top-center"
-        autoClose={1800}
-      />
+
       <h1 className="header-register-flight">REGISTRO DE VUELO</h1>
       <div className="container-details-flight flex flex-col items-center rounded-2xl">
         <div className="w-full rounded-3xl">
@@ -227,7 +223,7 @@ export default function Admin() {
         </button>
         <Link
           className="b-out px-14 py-3 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#F44336,-0.5rem_-0.5rem_#00BCD4] transition"
-          href={"/"}
+          href="/"
         >
           Salir
         </Link>
