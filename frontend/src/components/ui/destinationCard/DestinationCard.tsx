@@ -5,7 +5,7 @@ import "./destinationCard.css";
 
 const DestinationCard = (props: DestinationCardProps) => {
   return (
-    <Link href={`/destinos/hola?id=${props.country}`} className="box-image bg-gray-100">
+    <Link href={`/destinos/detalle-destino?id=${props.country}`} className="box-image bg-gray-100">
       <div
         className="image w-full"
         style={{ backgroundImage: `url(${props.url})` }}
