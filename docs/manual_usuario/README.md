@@ -98,3 +98,16 @@ Una vez que el usuario haya ingresado todos estos datos, el usuario tendra la po
    Dentro de su perfil el usuario podra visualizar los viajes que ha reservado dentro de Kehuel Airlines, con todo el contenido y detalles de los mismos
 
    ![dashboard](./imgs/viajes.jpeg)
+
+4. **Destinos**
+
+   Dentro de su perfil el usuario podra visualizar los destinos que se encuentran disponibles.
+
+   ![dashboard](./imgs/destinos.jpeg)
+
+5. **Destino**
+
+   Luego de seleccionar uno de los muchos destinos, se desplegará información importante respecto
+   al destino.
+
+   ![dashboard](./imgs/destino.jpeg)
